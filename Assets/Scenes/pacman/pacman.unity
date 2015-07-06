@@ -567,6 +567,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &44418538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 44418539}
+  m_Layer: 0
+  m_Name: pinky_Waypoint13
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &44418539
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 44418538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 13
 --- !u!1 &48490522
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +834,58 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &67103540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 67103541}
+  m_Layer: 0
+  m_Name: pinky_waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67103541
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67103540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 794923346}
+  - {fileID: 1818419538}
+  - {fileID: 1386468190}
+  - {fileID: 2032229933}
+  - {fileID: 2015040793}
+  - {fileID: 1914739375}
+  - {fileID: 1186782610}
+  - {fileID: 532745404}
+  - {fileID: 341126822}
+  - {fileID: 1536045982}
+  - {fileID: 1483816851}
+  - {fileID: 910684091}
+  - {fileID: 1701581376}
+  - {fileID: 44418539}
+  - {fileID: 1124440107}
+  - {fileID: 1525128220}
+  - {fileID: 569678110}
+  - {fileID: 1793166392}
+  - {fileID: 638884500}
+  - {fileID: 451015578}
+  - {fileID: 627360534}
+  - {fileID: 101186719}
+  - {fileID: 1334825446}
+  - {fileID: 381381653}
+  - {fileID: 883243500}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &68691878
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +978,7 @@ GameObject:
   - 95: {fileID: 71459951}
   - 58: {fileID: 71459955}
   - 50: {fileID: 71459954}
+  - 114: {fileID: 71459956}
   m_Layer: 0
   m_Name: pinky
   m_TagString: Untagged
@@ -990,6 +1070,44 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .800000012
+--- !u!114 &71459956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 71459950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca4ab5a5586cac4cafa20fcfdd51a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 794923346}
+  - {fileID: 1818419538}
+  - {fileID: 1386468190}
+  - {fileID: 2032229933}
+  - {fileID: 2015040793}
+  - {fileID: 1914739375}
+  - {fileID: 1186782610}
+  - {fileID: 532745404}
+  - {fileID: 341126822}
+  - {fileID: 1536045982}
+  - {fileID: 1483816851}
+  - {fileID: 910684091}
+  - {fileID: 1701581376}
+  - {fileID: 44418539}
+  - {fileID: 1124440107}
+  - {fileID: 1525128220}
+  - {fileID: 569678110}
+  - {fileID: 1793166392}
+  - {fileID: 638884500}
+  - {fileID: 451015578}
+  - {fileID: 627360534}
+  - {fileID: 101186719}
+  - {fileID: 1334825446}
+  - {fileID: 381381653}
+  - {fileID: 883243500}
+  speed: .174999997
 --- !u!1 &84239123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1188,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &89634806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 89634807}
+  m_Layer: 0
+  m_Name: clyde_Waypoint18
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &89634807
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89634806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 18
 --- !u!1 &94849253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1295,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &101186718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 101186719}
+  m_Layer: 0
+  m_Name: pinky_Waypoint21
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &101186719
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 101186718}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 21
 --- !u!1 &101728193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,6 +2558,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &203060233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 203060234}
+  m_Layer: 0
+  m_Name: clyde_Waypoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &203060234
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 203060233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 4
 --- !u!1 &207907046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +3065,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &240465819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 240465820}
+  m_Layer: 0
+  m_Name: clyde_Waypoint25
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &240465820
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 240465819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 25
 --- !u!1 &244406577
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,6 +3199,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 432162741}
   m_RootOrder: 12
+--- !u!1 &247954216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 247954217}
+  m_Layer: 0
+  m_Name: clyde_Waypoint17
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &247954217
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247954216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 17
 --- !u!1 &248952842
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,6 +3386,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &262165058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 262165059}
+  m_Layer: 0
+  m_Name: inky_Waypoint8
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &262165059
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 262165058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 8
 --- !u!1 &267457431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,6 +4053,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &341126821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 341126822}
+  m_Layer: 0
+  m_Name: pinky_Waypoint8
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &341126822
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341126821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 8
 --- !u!1 &341422570
 GameObject:
   m_ObjectHideFlags: 0
@@ -4387,6 +4694,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &381381652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 381381653}
+  m_Layer: 0
+  m_Name: pinky_Waypoint23
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &381381653
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381381652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 23
 --- !u!1 &382552116
 GameObject:
   m_ObjectHideFlags: 0
@@ -4894,6 +5228,115 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &395913371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 395913372}
+  m_Layer: 0
+  m_Name: inky_Waypoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &395913372
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 395913371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 5
+--- !u!1 &396903716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 396903717}
+  m_Layer: 0
+  m_Name: inky_Waypoint15
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &396903717
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 396903716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 15
+--- !u!1 &397186797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 397186798}
+  m_Layer: 0
+  m_Name: clyde_waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &397186798
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 397186797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 761142956}
+  - {fileID: 1108490393}
+  - {fileID: 449565549}
+  - {fileID: 1274312379}
+  - {fileID: 203060234}
+  - {fileID: 826659604}
+  - {fileID: 1587092448}
+  - {fileID: 1789298931}
+  - {fileID: 887981089}
+  - {fileID: 790423881}
+  - {fileID: 2036016090}
+  - {fileID: 1799128424}
+  - {fileID: 1960008397}
+  - {fileID: 1796329975}
+  - {fileID: 1895395683}
+  - {fileID: 418466757}
+  - {fileID: 579313932}
+  - {fileID: 247954217}
+  - {fileID: 89634807}
+  - {fileID: 436626301}
+  - {fileID: 1366067304}
+  - {fileID: 1718518010}
+  - {fileID: 1148461577}
+  - {fileID: 757014402}
+  - {fileID: 1552091372}
+  - {fileID: 240465820}
+  - {fileID: 947051031}
+  - {fileID: 1256125403}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &407539087
 GameObject:
   m_ObjectHideFlags: 0
@@ -5214,6 +5657,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &418466756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 418466757}
+  m_Layer: 0
+  m_Name: clyde_Waypoint15
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &418466757
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 418466756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 15
 --- !u!1 &422665798
 GameObject:
   m_ObjectHideFlags: 0
@@ -5498,6 +5968,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &436626300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 436626301}
+  m_Layer: 0
+  m_Name: clyde_Waypoint19
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436626301
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436626300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 19
 --- !u!1 &439384405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5898,6 +6395,60 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &449565548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449565549}
+  m_Layer: 0
+  m_Name: clyde_Waypoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449565549
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449565548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 2
+--- !u!1 &451015577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 451015578}
+  m_Layer: 0
+  m_Name: pinky_Waypoint19
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451015578
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451015577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 19
 --- !u!1 &458007785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6298,6 +6849,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &484217323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 484217324}
+  m_Layer: 0
+  m_Name: inky_Waypoint12
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484217324
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484217323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 12
 --- !u!1 &486877019
 GameObject:
   m_ObjectHideFlags: 0
@@ -7125,6 +7703,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &532745403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 532745404}
+  m_Layer: 0
+  m_Name: pinky_Waypoint7
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &532745404
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 532745403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 7
 --- !u!1 &534845564
 GameObject:
   m_ObjectHideFlags: 0
@@ -7525,6 +8130,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &569678109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 569678110}
+  m_Layer: 0
+  m_Name: pinky_Waypoint16
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &569678110
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569678109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 16
 --- !u!1 &571014133
 GameObject:
   m_ObjectHideFlags: 0
@@ -7685,6 +8317,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &579313931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 579313932}
+  m_Layer: 0
+  m_Name: clyde_Waypoint16
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579313932
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 579313931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 16
 --- !u!1 &582524488
 GameObject:
   m_ObjectHideFlags: 0
@@ -8272,6 +8931,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &627360533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 627360534}
+  m_Layer: 0
+  m_Name: pinky_Waypoint20
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627360534
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 627360533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 20
 --- !u!1 &637652081
 GameObject:
   m_ObjectHideFlags: 0
@@ -8352,6 +9038,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &638884499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 638884500}
+  m_Layer: 0
+  m_Name: pinky_Waypoint18
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &638884500
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 638884499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 18
 --- !u!1 &640859731
 GameObject:
   m_ObjectHideFlags: 0
@@ -8646,6 +9359,60 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &657210658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 657210659}
+  m_Layer: 0
+  m_Name: inky_Waypoint7
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &657210659
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 657210658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 7
+--- !u!1 &669882411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 669882412}
+  m_Layer: 0
+  m_Name: inky_Waypoint11
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &669882412
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 669882411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 11
 --- !u!1 &681216217
 GameObject:
   m_ObjectHideFlags: 0
@@ -9020,6 +9787,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 432162741}
   m_RootOrder: 14
+--- !u!1 &725974676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 725974677}
+  m_Layer: 0
+  m_Name: inky_Waypoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &725974677
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725974676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 1
 --- !u!1 &729422567
 GameObject:
   m_ObjectHideFlags: 0
@@ -9180,6 +9974,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &757014401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 757014402}
+  m_Layer: 0
+  m_Name: clyde_Waypoint23
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &757014402
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757014401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 23
 --- !u!1 &757331684
 GameObject:
   m_ObjectHideFlags: 0
@@ -10370,6 +11191,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &761142955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 761142956}
+  m_Layer: 0
+  m_Name: clyde_Waypoint0
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &761142956
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 761142955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 0
 --- !u!1 &761208055
 GameObject:
   m_ObjectHideFlags: 0
@@ -10690,6 +11538,60 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &790423880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 790423881}
+  m_Layer: 0
+  m_Name: clyde_Waypoint9
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &790423881
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 790423880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 9
+--- !u!1 &794923345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 794923346}
+  m_Layer: 0
+  m_Name: pinky_Waypoint0
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &794923346
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794923345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 0
 --- !u!1 &798493783
 GameObject:
   m_ObjectHideFlags: 0
@@ -11250,6 +12152,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &826659603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 826659604}
+  m_Layer: 0
+  m_Name: clyde_Waypoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &826659604
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 826659603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 5
 --- !u!1 &833123358
 GameObject:
   m_ObjectHideFlags: 0
@@ -11822,6 +12751,7 @@ GameObject:
   - 95: {fileID: 864624092}
   - 58: {fileID: 864624096}
   - 50: {fileID: 864624095}
+  - 114: {fileID: 864624097}
   m_Layer: 0
   m_Name: clyde
   m_TagString: Untagged
@@ -11913,6 +12843,74 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .800000012
+--- !u!114 &864624097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864624091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca4ab5a5586cac4cafa20fcfdd51a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 761142956}
+  - {fileID: 1108490393}
+  - {fileID: 449565549}
+  - {fileID: 1274312379}
+  - {fileID: 203060234}
+  - {fileID: 826659604}
+  - {fileID: 1587092448}
+  - {fileID: 1789298931}
+  - {fileID: 887981089}
+  - {fileID: 790423881}
+  - {fileID: 2036016090}
+  - {fileID: 1799128424}
+  - {fileID: 1960008397}
+  - {fileID: 1796329975}
+  - {fileID: 1895395683}
+  - {fileID: 418466757}
+  - {fileID: 579313932}
+  - {fileID: 247954217}
+  - {fileID: 89634807}
+  - {fileID: 436626301}
+  - {fileID: 1366067304}
+  - {fileID: 1718518010}
+  - {fileID: 1148461577}
+  - {fileID: 757014402}
+  - {fileID: 1552091372}
+  - {fileID: 240465820}
+  - {fileID: 947051031}
+  - {fileID: 1256125403}
+  speed: .150000006
+--- !u!1 &865398187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 865398188}
+  m_Layer: 0
+  m_Name: inky_Waypoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &865398188
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 865398187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 4
 --- !u!1 &874525377
 GameObject:
   m_ObjectHideFlags: 0
@@ -12153,6 +13151,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &883243499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 883243500}
+  m_Layer: 0
+  m_Name: pinky_Waypoint24
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883243500
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 883243499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 24
 --- !u!1 &884566854
 GameObject:
   m_ObjectHideFlags: 0
@@ -12233,6 +13258,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &887981088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 887981089}
+  m_Layer: 0
+  m_Name: clyde_Waypoint8
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &887981089
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887981088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 8
 --- !u!1 &892662646
 GameObject:
   m_ObjectHideFlags: 0
@@ -12553,6 +13605,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &910684090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 910684091}
+  m_Layer: 0
+  m_Name: pinky_Waypoint11
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &910684091
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 910684090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 11
 --- !u!1 &911579116
 GameObject:
   m_ObjectHideFlags: 0
@@ -12793,6 +13872,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &920217351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 920217352}
+  m_Layer: 0
+  m_Name: inky_Waypoint9
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &920217352
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 920217351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 9
 --- !u!1 &926165703
 GameObject:
   m_ObjectHideFlags: 0
@@ -13113,6 +14219,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &947051030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 947051031}
+  m_Layer: 0
+  m_Name: clyde_Waypoint26
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &947051031
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947051030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 26
 --- !u!1 &956906183
 GameObject:
   m_ObjectHideFlags: 0
@@ -15433,6 +16566,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1108490392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1108490393}
+  m_Layer: 0
+  m_Name: clyde_Waypoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1108490393
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1108490392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 1
 --- !u!1 &1112466259
 GameObject:
   m_ObjectHideFlags: 0
@@ -15833,6 +16993,60 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1124440106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1124440107}
+  m_Layer: 0
+  m_Name: pinky_Waypoint14
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124440107
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1124440106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 14
+--- !u!1 &1128552699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1128552700}
+  m_Layer: 0
+  m_Name: inky_Waypoint16
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1128552700
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128552699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 16
 --- !u!1 &1133542270
 GameObject:
   m_ObjectHideFlags: 0
@@ -16340,6 +17554,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1148461576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1148461577}
+  m_Layer: 0
+  m_Name: clyde_Waypoint22
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1148461577
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148461576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 22
 --- !u!1 &1154704454
 GameObject:
   m_ObjectHideFlags: 0
@@ -16820,6 +18061,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1186782609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1186782610}
+  m_Layer: 0
+  m_Name: pinky_Waypoint6
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1186782610
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1186782609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 6
 --- !u!1 &1187397599
 GameObject:
   m_ObjectHideFlags: 0
@@ -17620,6 +18888,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1256125402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1256125403}
+  m_Layer: 0
+  m_Name: clyde_Waypoint27
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1256125403
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256125402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 27
 --- !u!1 &1256733917
 GameObject:
   m_ObjectHideFlags: 0
@@ -18100,6 +19395,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1274312378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1274312379}
+  m_Layer: 0
+  m_Name: clyde_Waypoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1274312379
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274312378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 3
 --- !u!1 &1283140041
 GameObject:
   m_ObjectHideFlags: 0
@@ -18340,6 +19662,50 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1299104934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1299104935}
+  m_Layer: 0
+  m_Name: inky_waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1299104935
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1299104934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2101251384}
+  - {fileID: 725974677}
+  - {fileID: 1399783132}
+  - {fileID: 1513129888}
+  - {fileID: 865398188}
+  - {fileID: 395913372}
+  - {fileID: 1318713473}
+  - {fileID: 657210659}
+  - {fileID: 262165059}
+  - {fileID: 920217352}
+  - {fileID: 1517600078}
+  - {fileID: 669882412}
+  - {fileID: 484217324}
+  - {fileID: 1361280734}
+  - {fileID: 1841726452}
+  - {fileID: 396903717}
+  - {fileID: 1128552700}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &1314035508
 GameObject:
   m_ObjectHideFlags: 0
@@ -18500,6 +19866,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1318713472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1318713473}
+  m_Layer: 0
+  m_Name: inky_Waypoint6
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1318713473
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318713472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 6
 --- !u!1 &1322271155
 GameObject:
   m_ObjectHideFlags: 0
@@ -18905,6 +20298,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1334825445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1334825446}
+  m_Layer: 0
+  m_Name: pinky_Waypoint22
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1334825446
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1334825445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 22
 --- !u!1 &1336103467
 GameObject:
   m_ObjectHideFlags: 0
@@ -19065,6 +20485,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1361280733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1361280734}
+  m_Layer: 0
+  m_Name: inky_Waypoint13
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1361280734
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361280733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 13
 --- !u!1 &1362327414
 GameObject:
   m_ObjectHideFlags: 0
@@ -19092,6 +20539,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 432162741}
   m_RootOrder: 1
+--- !u!1 &1366067303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1366067304}
+  m_Layer: 0
+  m_Name: clyde_Waypoint20
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1366067304
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366067303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 20
 --- !u!1 &1380171426
 GameObject:
   m_ObjectHideFlags: 0
@@ -19172,6 +20646,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1386468189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1386468190}
+  m_Layer: 0
+  m_Name: pinky_Waypoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386468190
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386468189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 2
 --- !u!1 &1392778163
 GameObject:
   m_ObjectHideFlags: 0
@@ -19252,6 +20753,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1399783131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1399783132}
+  m_Layer: 0
+  m_Name: inky_Waypoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399783132
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399783131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 2
 --- !u!1 &1403770352
 GameObject:
   m_ObjectHideFlags: 0
@@ -20052,6 +21580,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1483816850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1483816851}
+  m_Layer: 0
+  m_Name: pinky_Waypoint10
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1483816851
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1483816850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 10
 --- !u!1 &1492388648
 GameObject:
   m_ObjectHideFlags: 0
@@ -20372,6 +21927,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1513129887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1513129888}
+  m_Layer: 0
+  m_Name: inky_Waypoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1513129888
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513129887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 3
 --- !u!1 &1515194070
 GameObject:
   m_ObjectHideFlags: 0
@@ -20452,6 +22034,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1517600077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1517600078}
+  m_Layer: 0
+  m_Name: inky_Waypoint10
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517600078
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1517600077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 10
 --- !u!1 &1522622310
 GameObject:
   m_ObjectHideFlags: 0
@@ -20532,6 +22141,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1525128219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1525128220}
+  m_Layer: 0
+  m_Name: pinky_Waypoint15
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1525128220
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525128219}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 15
 --- !u!1 &1533069693
 GameObject:
   m_ObjectHideFlags: 0
@@ -20612,6 +22248,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1536045981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1536045982}
+  m_Layer: 0
+  m_Name: pinky_Waypoint9
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1536045982
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536045981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 9
 --- !u!1 &1539225238
 GameObject:
   m_ObjectHideFlags: 0
@@ -20932,6 +22595,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1552091371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1552091372}
+  m_Layer: 0
+  m_Name: clyde_Waypoint24
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1552091372
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552091371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 24
 --- !u!1 &1555431017
 GameObject:
   m_ObjectHideFlags: 0
@@ -21332,6 +23022,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1587092447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1587092448}
+  m_Layer: 0
+  m_Name: clyde_Waypoint6
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1587092448
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587092447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 6
 --- !u!1 &1591576143
 GameObject:
   m_ObjectHideFlags: 0
@@ -21892,7 +23609,7 @@ MonoBehaviour:
   - {fileID: 724458290}
   - {fileID: 2055821688}
   - {fileID: 1720313074}
-  speed: .200000003
+  speed: .125
 --- !u!1 &1624044076
 GameObject:
   m_ObjectHideFlags: 0
@@ -22853,6 +24570,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1701581375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1701581376}
+  m_Layer: 0
+  m_Name: pinky_Waypoint12
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1701581376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701581375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 12
 --- !u!1 &1713342704
 GameObject:
   m_ObjectHideFlags: 0
@@ -22933,6 +24677,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1718518009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1718518010}
+  m_Layer: 0
+  m_Name: clyde_Waypoint21
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1718518010
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718518009}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 21
 --- !u!1 &1719637011
 GameObject:
   m_ObjectHideFlags: 0
@@ -24000,6 +25771,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1789298930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1789298931}
+  m_Layer: 0
+  m_Name: clyde_Waypoint7
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1789298931
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1789298930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 7
 --- !u!1 &1792741245
 GameObject:
   m_ObjectHideFlags: 0
@@ -24080,6 +25878,87 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1793166391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1793166392}
+  m_Layer: 0
+  m_Name: pinky_Waypoint17
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793166392
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793166391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 17
+--- !u!1 &1796329974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1796329975}
+  m_Layer: 0
+  m_Name: clyde_Waypoint13
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1796329975
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796329974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 13
+--- !u!1 &1799128423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1799128424}
+  m_Layer: 0
+  m_Name: clyde_Waypoint11
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1799128424
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799128423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 11
 --- !u!1 &1799959650
 GameObject:
   m_ObjectHideFlags: 0
@@ -24507,6 +26386,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1818419537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1818419538}
+  m_Layer: 0
+  m_Name: pinky_Waypoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1818419538
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1818419537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 1
 --- !u!1 &1819470731
 GameObject:
   m_ObjectHideFlags: 0
@@ -25014,6 +26920,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1841726451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1841726452}
+  m_Layer: 0
+  m_Name: inky_Waypoint14
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1841726452
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841726451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 14
 --- !u!1 &1842188814
 GameObject:
   m_ObjectHideFlags: 0
@@ -25654,6 +27587,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1895395682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1895395683}
+  m_Layer: 0
+  m_Name: clyde_Waypoint14
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1895395683
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895395682}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 14
 --- !u!1 &1907517572
 GameObject:
   m_ObjectHideFlags: 0
@@ -25814,6 +27774,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1914739374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1914739375}
+  m_Layer: 0
+  m_Name: pinky_Waypoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1914739375
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1914739374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 5
 --- !u!1 &1915495845
 GameObject:
   m_ObjectHideFlags: 0
@@ -25986,6 +27973,7 @@ GameObject:
   - 95: {fileID: 1926579663}
   - 58: {fileID: 1926579667}
   - 50: {fileID: 1926579666}
+  - 114: {fileID: 1926579668}
   m_Layer: 0
   m_Name: inky
   m_TagString: Untagged
@@ -26077,6 +28065,36 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .800000012
+--- !u!114 &1926579668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1926579662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca4ab5a5586cac4cafa20fcfdd51a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 2101251384}
+  - {fileID: 725974677}
+  - {fileID: 1399783132}
+  - {fileID: 1513129888}
+  - {fileID: 865398188}
+  - {fileID: 395913372}
+  - {fileID: 1318713473}
+  - {fileID: 657210659}
+  - {fileID: 262165059}
+  - {fileID: 920217352}
+  - {fileID: 1517600078}
+  - {fileID: 669882412}
+  - {fileID: 484217324}
+  - {fileID: 1361280734}
+  - {fileID: 1841726452}
+  - {fileID: 396903717}
+  - {fileID: 1128552700}
+  speed: .150000006
 --- !u!1 &1930687797
 GameObject:
   m_ObjectHideFlags: 0
@@ -26477,6 +28495,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1960008396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1960008397}
+  m_Layer: 0
+  m_Name: clyde_Waypoint12
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960008397
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1960008396}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 12
 --- !u!1 &1961452012
 GameObject:
   m_ObjectHideFlags: 0
@@ -26877,6 +28922,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &2015040792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2015040793}
+  m_Layer: 0
+  m_Name: pinky_Waypoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2015040793
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015040792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 4
 --- !u!1 &2015313221
 GameObject:
   m_ObjectHideFlags: 0
@@ -27277,6 +29349,60 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &2032229932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2032229933}
+  m_Layer: 0
+  m_Name: pinky_Waypoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 8467475693731670952, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2032229933
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032229932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 67103541}
+  m_RootOrder: 3
+--- !u!1 &2036016089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2036016090}
+  m_Layer: 0
+  m_Name: clyde_Waypoint10
+  m_TagString: Untagged
+  m_Icon: {fileID: -3906512864147387971, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2036016090
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036016089}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 397186798}
+  m_RootOrder: 10
 --- !u!1 &2038317899
 GameObject:
   m_ObjectHideFlags: 0
@@ -28264,6 +30390,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9f8c366a83702d4f916b1ab3a53ea18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &2101251383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2101251384}
+  m_Layer: 0
+  m_Name: inky_Waypoint0
+  m_TagString: Untagged
+  m_Icon: {fileID: 4892941663561143343, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2101251384
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2101251383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1299104935}
+  m_RootOrder: 0
 --- !u!1 &2128605590
 GameObject:
   m_ObjectHideFlags: 0
