@@ -1502,6 +1502,7 @@ GameObject:
   - 61: {fileID: 757331687}
   - 61: {fileID: 757331686}
   - 61: {fileID: 757331685}
+  - 114: {fileID: 757331739}
   m_Layer: 0
   m_Name: maze
   m_TagString: Untagged
@@ -2223,6 +2224,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &757331739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757331684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8859db22cd6e058419945ab68605da01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataFile: {fileID: 4900000, guid: 2e5816ae501b9e64db8bb28652b548b7, type: 3}
 --- !u!1 &761142955
 GameObject:
   m_ObjectHideFlags: 0
