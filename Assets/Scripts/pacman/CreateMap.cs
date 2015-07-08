@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections;
 using System.IO;
 
-public class LoadPacdots : MonoBehaviour {
+public class CreateMap : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		string input = File.ReadAllText( @"c:\dev\hoggerday\Assets\Maps\pacman\level1.txt" );
