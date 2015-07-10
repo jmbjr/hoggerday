@@ -12,7 +12,7 @@ GameObject:
   - 61: {fileID: 6186270}
   - 61: {fileID: 6161586}
   m_Layer: 0
-  m_Name: wall_2x_corner_tl
+  m_Name: wall_2x_corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
