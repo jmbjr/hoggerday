@@ -37,7 +37,7 @@ public class PacmanMove : MonoBehaviour {
 		//Cas LIne from 'next to Pac-Man' to 'Pac-Man'
 		Vector2 pos = transform.position;
 		RaycastHit2D hit = Physics2D.Linecast(pos + dir, pos);
-		return (hit.collider.name != "maze");
+		return (hit.collider.name.Substring(0,4) != "wall");
 	}
 
 }
