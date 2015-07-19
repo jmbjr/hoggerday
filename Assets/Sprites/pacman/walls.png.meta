@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c6d3f7f167772804e834e63545a8cdf4
-timeCreated: 1436852679
+timeCreated: 1437295007
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -66,8 +66,8 @@ TextureImporter:
         y: 24
         width: 8
         height: 8
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_1
       rect:
@@ -76,8 +76,8 @@ TextureImporter:
         y: 24
         width: 8
         height: 8
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_2
       rect:
@@ -86,8 +86,8 @@ TextureImporter:
         y: 24
         width: 8
         height: 8
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_3
       rect:
@@ -96,7 +96,7 @@ TextureImporter:
         y: 16
         width: 8
         height: 8
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_4
@@ -106,7 +106,7 @@ TextureImporter:
         y: 16
         width: 8
         height: 8
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_5
@@ -116,7 +116,7 @@ TextureImporter:
         y: 16
         width: 8
         height: 8
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_6
@@ -126,7 +126,7 @@ TextureImporter:
         y: 8
         width: 8
         height: 8
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_7
@@ -136,7 +136,7 @@ TextureImporter:
         y: 8
         width: 8
         height: 8
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_8
@@ -146,7 +146,7 @@ TextureImporter:
         y: 8
         width: 8
         height: 8
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: walls_9
@@ -156,7 +156,7 @@ TextureImporter:
         y: 0
         width: 8
         height: 8
-      alignment: 6
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
