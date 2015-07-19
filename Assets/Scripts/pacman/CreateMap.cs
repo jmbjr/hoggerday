@@ -117,7 +117,45 @@ public class CreateMap : MonoBehaviour {
 		
 		return boolEmpty;
 	}
+	public prefabInfo setPrefab(WallInfo theWallInfo)
+	{
+		prefabInfo thisPrefab = new prefabInfo();
 
+		thisPrefab.prefab="";
+		thisPrefab.Zrot = 0;
+		thisPrefab.Xoff = 0;
+		thisPrefab.Yoff = 0;
+		thisPrefab.Xscale = 1.0f;
+		thisPrefab.Yscale= 1.0f;
+
+		switch (theWallInfo.Shape)
+		{
+		case WallShape.CORNER:
+			switch (theWallInfo.Type)
+			{
+			case TileType.SINGLE:
+				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_1x_corner.prefab";
+				break;
+			case TileType.DOUBLE:
+				thisPrefab.prefab =  "Assets/Prefabs/pacman/wall_2x_corner.prefab";
+				break;
+			}
+			break;
+
+		case WallShape.FLAT:
+			switch (theWallInfo.Type)
+			{
+			case TileType.SINGLE:
+				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_1x_flat.prefab";
+				break;
+			case TileType.DOUBLE:
+				thisPrefab.prefab =  "Assets/Prefabs/pacman/wall_2x_flat.prefab";
+				break;
+			}
+			break;
+		}
+		return thisPrefab;
+	}
 
 
 	//enums
@@ -161,6 +199,7 @@ public class CreateMap : MonoBehaviour {
 	public struct WallInfo {
 		public WallShape Shape;
 		public TileDir Dir;
+		public TileType Type;
 	}
 	public struct boolDir {
 		public bool TOPLEFT;
@@ -173,7 +212,14 @@ public class CreateMap : MonoBehaviour {
 		public bool BOTTOM;
 		public bool BOTTOMRIGHT;
 	}
-
+	public struct prefabInfo {
+		public string prefab;
+		public int Zrot;
+		public float Xoff;
+		public float Yoff;
+		public float Xscale;
+		public float Yscale;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -186,6 +232,7 @@ public class CreateMap : MonoBehaviour {
 		string[,] cellBlock = new string[3,3] ;
 		TileType[] theNeighbors = new TileType[9] ;
 		WallInfo theWallInfo = new WallInfo();
+		prefabInfo thisPrefab = new prefabInfo();
 
 		string theCode = "", thePrefab = "";
 
@@ -234,19 +281,27 @@ public class CreateMap : MonoBehaviour {
 				#region 
 				switch (theTile)
 				{
-					case TileType.PATH:
-						UnityEngine.Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/pacman/pacdot.prefab", typeof(GameObject));
-						GameObject clone = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
-						clone.transform.position = new Vector3(j + 1, numrows - i , 0);
-						break;
-					case TileType.BLANK:
-						break;
-					case TileType.SINGLE:// let's parse further to determine which map piece to add
-					case TileType.DOUBLE:
-						theWallInfo = getWallShape(theNeighbors);
-						Debug.Log (theWallInfo.Shape.ToString());
-						Xscale = 1;
-						Yscale = 1;
+				case TileType.PATH:
+					UnityEngine.Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/pacman/pacdot.prefab", typeof(GameObject));
+					GameObject clone = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
+					clone.transform.position = new Vector3(j + 1, numrows - i , 0);
+					break;
+				case TileType.BLANK:
+					break;
+				case TileType.SINGLE:// let's parse further to determine which map piece to add
+				case TileType.DOUBLE:
+					theWallInfo = getWallShape(theNeighbors);
+					thisPrefab = setPrefab(theWallInfo);
+					thePrefab = thisPrefab.prefab;
+					Zrot = thisPrefab.Zrot;
+					Xoff = thisPrefab.Xoff;
+					Yoff = thisPrefab.Yoff;
+					Xscale = thisPrefab.Xscale;
+					Yscale = thisPrefab.Yscale;
+
+					Debug.Log (theWallInfo.Shape.ToString());
+					Xscale = 1;
+					Yscale = 1;
 						switch (theCode)
 						{
 							//2x corner
@@ -694,6 +749,7 @@ public class CreateMap : MonoBehaviour {
 
 		theWallInfo.Shape = theWallShape;
 		theWallInfo.Dir = theWallDir;
+		theWallInfo.Type = thisTile;
 
 		return theWallInfo;
 	}
