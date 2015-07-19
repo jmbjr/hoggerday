@@ -43,6 +43,11 @@ public class CreateMap : MonoBehaviour {
 	};
 	#endregion
 
+	public struct WallInfo {
+		public WallShape Shape;
+		public TileDir Dir;
+	}
+
 	// Use this for initialization
 	void Start () {
 		string input = File.ReadAllText( "Assets/Maps/pacman/level1.txt" );
@@ -53,6 +58,7 @@ public class CreateMap : MonoBehaviour {
 		int[,] maparray = new int[numrows, numcols];
 		string[,] cellBlock = new string[3,3] ;
 		TileType[] theNeighbors = new TileType[9] ;
+		WallInfo theWallInfo = new WallInfo();
 
 		string theCode = "", thePrefab = "";
 
@@ -110,7 +116,8 @@ public class CreateMap : MonoBehaviour {
 						break;
 					case TileType.SINGLE:// let's parse further to determine which map piece to add
 					case TileType.DOUBLE:
-						
+						theWallInfo = getWallShape(theNeighbors);
+						Debug.Log (theWallInfo.Shape.ToString());
 						//Debug.Log(theCode);
 						Xscale = 1;
 						Yscale = 1;
@@ -527,6 +534,43 @@ public class CreateMap : MonoBehaviour {
 				#endregion
 			}
 		}
+	}
+
+	public WallInfo getWallShape (TileType[] mapBlock)
+	{
+		TileType thisTile = mapBlock[(int)TileDir.MIDDLE];
+		WallShape theWallShape = WallShape.NONE;
+		TileDir theWallDir = TileDir.MIDDLE;
+		WallInfo theWallInfo;
+
+		bool tWall = mapBlock[(int)TileDir.TOP] == thisTile;
+		bool lWall = mapBlock[(int)TileDir.LEFT] == thisTile;
+		bool bWall = mapBlock[(int)TileDir.BOTTOM] == thisTile;
+		bool rWall = mapBlock[(int)TileDir.RIGHT] == thisTile;
+
+		bool tlWall = mapBlock[(int)TileDir.TOP] == thisTile && mapBlock[(int)TileDir.LEFT] == thisTile;
+		bool trWall = mapBlock[(int)TileDir.TOP] == thisTile && mapBlock[(int)TileDir.RIGHT] == thisTile;
+		bool blWall = mapBlock[(int)TileDir.BOTTOM] == thisTile && mapBlock[(int)TileDir.LEFT] == thisTile;
+		bool brWall = mapBlock[(int)TileDir.BOTTOM] == thisTile && mapBlock[(int)TileDir.RIGHT] == thisTile;
+
+		//check for corners
+		if ((tWall && rWall && !lWall && !bWall) ||
+		    (tWall && !rWall && lWall && !bWall) ||
+		    (!tWall && !rWall && lWall && bWall) ||
+		    (!tWall && rWall && !lWall && bWall))
+			theWallShape = WallShape.CORNER;
+			
+		//check for flats
+		else if ((tWall && !rWall && !lWall && bWall) ||
+		         (!tWall && rWall && lWall && !bWall) )
+			theWallShape = WallShape.FLAT;
+		else
+			theWallShape = WallShape.NONE;
+
+		theWallInfo.Shape = theWallShape;
+		theWallInfo.Dir = theWallDir;
+
+		return theWallInfo;
 	}
 
 }
