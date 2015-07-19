@@ -5,6 +5,26 @@ using System.IO;
 using System;
 
 public class CreateMap : MonoBehaviour {
+	enum TileType
+	{
+		EMPTY,
+		SINGLE,
+		DOUBLE,
+		THIN,
+		GATE,
+		FIVE,
+		SIX,
+		SEVEN,
+		EIGHT,
+		BLANK,
+	};
+	enum WallShape
+	{
+		FLAT,
+		CORNER,
+		CORNER2,
+		TEE,
+	};
 	// Use this for initialization
 	void Start () {
 		string input = File.ReadAllText( "Assets/Maps/pacman/level1.txt" );
@@ -52,6 +72,7 @@ public class CreateMap : MonoBehaviour {
 						for (jj = 0; jj < 3; jj++)
 							theCode=theCode + cellBlock[ii,jj];
 					}
+
 					//Debug.Log(theCode);
 					Xscale = 1;
 					Yscale = 1;
