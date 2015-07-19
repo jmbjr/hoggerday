@@ -29,21 +29,17 @@ public class CreateMap : MonoBehaviour {
 		CORNER2,
 		TEE,
 	};
-	enum OrientCorner
+	enum TileNeighbor
 	{
-		NONE,
-		TOPRIGHT,
 		TOPLEFT,
-		BOTTOMLEFT,
-		BOTTOMRIGHT,
-	};
-	enum OrientFlat
-	{
-		NONE,
 		TOP,
+		TOPRIGHT,
 		LEFT,
-		BOTTOM,
+		MIDDLE,
 		RIGHT,
+		BOTTOMLEFT,
+		BOTTOM,
+		BOTTOMRIGHT,
 	};
 	#endregion
 
@@ -53,10 +49,10 @@ public class CreateMap : MonoBehaviour {
 
 		int i = 0, j = 0, ii = 0, jj = 0, iioff = 0, jjoff = 0, Zrot=0;
 		float Xoff=0, Yoff=0, Xscale = 1, Yscale = 1;
-		int numrows = 31, numcols = 28;
+		int numrows = 31, numcols = 28, iineighbor = 0;
 		int[,] maparray = new int[numrows, numcols];
 		string[,] cellBlock = new string[3,3] ;
-		TileType[,] cellBlock2 = new TileType[3,3] ;
+		TileType[] theNeighbors = new TileType[9] ;
 
 		string theCode = "", thePrefab = "";
 
@@ -79,15 +75,17 @@ public class CreateMap : MonoBehaviour {
 				for (ii = 0; ii < 3; ii++){
 					for (jj = 0; jj < 3; jj++){
 						cellBlock[ii,jj] = "x";
-						cellBlock2[ii,jj] = TileType.OFFMAP;
 					}
 				}
 				//get neighbors
+				iineighbor = 0;
 				for (iioff = -1; iioff < 2; iioff++){
 					for (jjoff = -1; jjoff < 2; jjoff++) {
 						if (i+iioff >=0 && i+iioff < numrows && j+jjoff >=0 && j+jjoff < numcols) { //valid i,j indices 
 							cellBlock[iioff+1, jjoff+1] =  maparray[i+iioff, j+jjoff].ToString();
+							theNeighbors[iineighbor] = (TileType)maparray[i+iioff, j+jjoff];
 						}
+						iineighbor++;
 					}
 				}
 				//expand to single string
@@ -96,6 +94,7 @@ public class CreateMap : MonoBehaviour {
 					for (jj = 0; jj < 3; jj++)
 						theCode=theCode + cellBlock[ii,jj];
 				}
+
 				#region 
 				switch (theTile)
 				{
@@ -108,7 +107,7 @@ public class CreateMap : MonoBehaviour {
 						break;
 					case TileType.SINGLE:// let's parse further to determine which map piece to add
 					case TileType.DOUBLE:
-
+						
 						//Debug.Log(theCode);
 						Xscale = 1;
 						Yscale = 1;
@@ -512,7 +511,7 @@ public class CreateMap : MonoBehaviour {
 						}	
 
 					if (thePrefab != ""){
-						Debug.Log (i.ToString()+","+j.ToString()+":"+thePrefab);
+						//Debug.Log (i.ToString()+","+j.ToString()+":"+thePrefab);
 						UnityEngine.Object prefab2 = AssetDatabase.LoadAssetAtPath(thePrefab, typeof(GameObject));
 						GameObject clone2 = Instantiate(prefab2, new Vector3(j + Xoff, numrows - i +Yoff, 0), Quaternion.Euler(0, 0, Zrot)) as GameObject;
 						clone2.transform.localScale = new Vector3(Xscale,Yscale,1); 
