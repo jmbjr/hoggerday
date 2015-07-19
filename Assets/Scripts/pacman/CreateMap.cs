@@ -167,6 +167,24 @@ public class CreateMap : MonoBehaviour {
 				thisPrefab.prefab =  "Assets/Prefabs/pacman/wall_2x_corner.prefab";
 				break;
 			}
+			switch (theWallInfo.Dir)
+			{
+			case TileDir.TOPRIGHT:
+				thisPrefab.Zrot = -90;
+				break;
+			case TileDir.TOPLEFT:
+				thisPrefab.Zrot = 0;
+				break;
+			case TileDir.BOTTOMRIGHT:
+				thisPrefab.Zrot = 180;
+				break;
+			case TileDir.BOTTOMLEFT:
+				thisPrefab.Zrot = 90;
+				break;
+			default:
+				thisPrefab.Zrot = -45;
+				break;
+			}
 			break;
 
 		case WallShape.FLAT:
@@ -177,6 +195,24 @@ public class CreateMap : MonoBehaviour {
 				break;
 			case TileType.DOUBLE:
 				thisPrefab.prefab =  "Assets/Prefabs/pacman/wall_2x_flat.prefab";
+				break;
+			}
+			switch (theWallInfo.Dir)
+			{
+			case TileDir.TOP:
+				thisPrefab.Zrot = 0;
+				break;
+			case TileDir.LEFT:
+				thisPrefab.Zrot = 90;
+				break;
+			case TileDir.RIGHT:
+				thisPrefab.Zrot = -90;
+				break;
+			case TileDir.BOTTOM:
+				thisPrefab.Zrot = 180;
+				break;
+			default:
+				thisPrefab.Zrot = -45;
 				break;
 			}
 			break;
