@@ -23,43 +23,70 @@ public class CreateMap : MonoBehaviour {
 	}
 	public static bool isFlat(boolDir boolWalls)
 	{
-		return ((boolWalls.TOP && !boolWalls.RIGHT && !boolWalls.LEFT && boolWalls.BOTTOM) ||
-		        (!boolWalls.TOP && boolWalls.RIGHT && boolWalls.LEFT && !boolWalls.BOTTOM) );
+		return ((boolWalls.TOP &&  boolWalls.BOTTOM && (!boolWalls.RIGHT || !boolWalls.LEFT)) ||
+		        (boolWalls.LEFT && boolWalls.RIGHT && (!boolWalls.TOP || !boolWalls.BOTTOM)) );
 	}
 	public static TileDir cornerDir(boolDir boolWalls, boolDir boolEmpty, TileType thisTile)
 	{
 		TileDir theWallDir = TileDir.MIDDLE;
 
-		if (boolWalls.TOP && boolWalls.RIGHT && boolEmpty.BOTTOMLEFT)
-			theWallDir = TileDir.BOTTOMLEFT; //1x
-		else if (boolWalls.TOP && boolWalls.LEFT && boolEmpty.BOTTOMRIGHT)
-			theWallDir = TileDir.BOTTOMRIGHT; //1x
-		else if (boolWalls.BOTTOM && boolWalls.RIGHT && boolEmpty.TOPLEFT)
-			theWallDir = TileDir.TOPLEFT; //1x
-		else if (boolWalls.BOTTOM && boolWalls.LEFT && boolEmpty.TOPRIGHT)
-			theWallDir = TileDir.BOTTOMLEFT; //1x
-		
-		if (thisTile == TileType.DOUBLE) //2x tiles are inverted.
-			theWallDir = flipDir(theWallDir);
+		//1x
+		switch (thisTile)
+		{
+		case TileType.SINGLE:
+			if (boolWalls.TOP && boolWalls.RIGHT && boolEmpty.BOTTOMLEFT)
+				theWallDir = TileDir.BOTTOMLEFT; //1x
+			else if (boolWalls.TOP && boolWalls.LEFT && boolEmpty.BOTTOMRIGHT)
+				theWallDir = TileDir.BOTTOMRIGHT; //1x
+			else if (boolWalls.BOTTOM && boolWalls.RIGHT && boolEmpty.TOPLEFT)
+				theWallDir = TileDir.TOPLEFT; //1x
+			else if (boolWalls.BOTTOM && boolWalls.LEFT && boolEmpty.TOPRIGHT)
+				theWallDir = TileDir.TOPRIGHT; //1x
+			break;
 
+		case TileType.DOUBLE:
+			//2x
+			if (boolWalls.TOP && boolWalls.RIGHT && boolEmpty.TOPRIGHT)
+				theWallDir = TileDir.BOTTOMLEFT; //2x
+			else if (boolWalls.TOP && boolWalls.LEFT && boolEmpty.TOPLEFT)
+				theWallDir = TileDir.BOTTOMRIGHT;  //2x
+			else if (boolWalls.BOTTOM && boolWalls.RIGHT && boolEmpty.BOTTOMRIGHT)
+				theWallDir = TileDir.TOPLEFT;  //2x
+			else if (boolWalls.BOTTOM && boolWalls.LEFT && boolEmpty.BOTTOMLEFT)
+				theWallDir = TileDir.TOPRIGHT; //2x
+			break;
+		}
 		return theWallDir;
 	}
 	public static TileDir flatDir(boolDir boolWalls, boolDir boolEmpty, TileType thisTile)
 	{
 		TileDir theWallDir = TileDir.MIDDLE;
-		
-		if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.LEFT)
-			theWallDir = TileDir.LEFT; //1x
-		else if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.RIGHT)
-			theWallDir = TileDir.RIGHT; //1x
-		else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.TOP)
-			theWallDir = TileDir.TOP; //1x
-		else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.BOTTOM)
-			theWallDir = TileDir.BOTTOM; //1x
-		
-		if (thisTile == TileType.DOUBLE) //2x tiles are inverted.
-			theWallDir = flipDir(theWallDir);
-		
+
+		//1x
+		switch (thisTile)
+		{
+		case TileType.SINGLE:
+			if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.LEFT)
+				theWallDir = TileDir.LEFT; //1x
+			else if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.RIGHT)
+				theWallDir = TileDir.RIGHT; //1x
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.TOP)
+				theWallDir = TileDir.TOP; //1x
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.BOTTOM)
+				theWallDir = TileDir.BOTTOM; //1x
+			break;
+		case TileType.DOUBLE:
+			//2x
+			if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.RIGHT)
+				theWallDir = TileDir.LEFT; //2x
+			else if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.LEFT)
+				theWallDir = TileDir.RIGHT; //2x
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.TOP)
+				theWallDir = TileDir.BOTTOM; //2x
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.BOTTOM)
+				theWallDir = TileDir.TOP; //2x
+			break;
+		}
 		return theWallDir;
 	}
 	public static TileDir flipDir(TileDir theWallDir)
@@ -292,6 +319,7 @@ public class CreateMap : MonoBehaviour {
 				case TileType.DOUBLE:
 					theWallInfo = getWallShape(theNeighbors);
 					thisPrefab = setPrefab(theWallInfo);
+
 					thePrefab = thisPrefab.prefab;
 					Zrot = thisPrefab.Zrot;
 					Xoff = thisPrefab.Xoff;
