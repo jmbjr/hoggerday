@@ -4,7 +4,28 @@ using System.Collections;
 using System.IO;
 using System;
 
+
 public class CreateMap : MonoBehaviour {
+	public static bool isWall(TileType theType)
+	{
+		return theType == TileType.SINGLE || theType == TileType.DOUBLE;
+	}
+	public static bool isEmpty(TileType theType)
+	{
+		return theType == TileType.BLANK || theType == TileType.PATH;
+	}
+	public static bool isCorner(bool tWall, bool lWall, bool bWall, bool rWall)
+	{
+		return ((tWall && rWall && !lWall && !bWall) ||
+		        (tWall && !rWall && lWall && !bWall) ||
+		        (!tWall && !rWall && lWall && bWall) ||
+		        (!tWall && rWall && !lWall && bWall));
+	}
+	public static bool isFlat(bool tWall, bool lWall, bool bWall, bool rWall)
+	{
+		return ((tWall && !rWall && !lWall && bWall) ||
+		        (!tWall && rWall && lWall && !bWall) );
+	}
 	//enums
 	#region
 	public enum TileType
@@ -47,7 +68,6 @@ public class CreateMap : MonoBehaviour {
 		public WallShape Shape;
 		public TileDir Dir;
 	}
-
 	// Use this for initialization
 	void Start () {
 		string input = File.ReadAllText( "Assets/Maps/pacman/level1.txt" );
@@ -118,7 +138,6 @@ public class CreateMap : MonoBehaviour {
 					case TileType.DOUBLE:
 						theWallInfo = getWallShape(theNeighbors);
 						Debug.Log (theWallInfo.Shape.ToString());
-						//Debug.Log(theCode);
 						Xscale = 1;
 						Yscale = 1;
 						switch (theCode)
@@ -543,29 +562,50 @@ public class CreateMap : MonoBehaviour {
 		TileDir theWallDir = TileDir.MIDDLE;
 		WallInfo theWallInfo;
 
-		bool tWall = mapBlock[(int)TileDir.TOP] == thisTile;
-		bool lWall = mapBlock[(int)TileDir.LEFT] == thisTile;
-		bool bWall = mapBlock[(int)TileDir.BOTTOM] == thisTile;
-		bool rWall = mapBlock[(int)TileDir.RIGHT] == thisTile;
+		bool tWall = isWall(mapBlock[(int)TileDir.TOP]);
+		bool lWall = isWall(mapBlock[(int)TileDir.LEFT]);
+		bool bWall = isWall(mapBlock[(int)TileDir.BOTTOM]);
+		bool rWall = isWall(mapBlock[(int)TileDir.RIGHT]);
 
-		bool tlWall = mapBlock[(int)TileDir.TOP] == thisTile && mapBlock[(int)TileDir.LEFT] == thisTile;
-		bool trWall = mapBlock[(int)TileDir.TOP] == thisTile && mapBlock[(int)TileDir.RIGHT] == thisTile;
-		bool blWall = mapBlock[(int)TileDir.BOTTOM] == thisTile && mapBlock[(int)TileDir.LEFT] == thisTile;
-		bool brWall = mapBlock[(int)TileDir.BOTTOM] == thisTile && mapBlock[(int)TileDir.RIGHT] == thisTile;
+		bool tlWall = isWall(mapBlock[(int)TileDir.TOPLEFT]);
+		bool trWall = isWall(mapBlock[(int)TileDir.TOPRIGHT]);
+		bool blWall = isWall(mapBlock[(int)TileDir.BOTTOMLEFT]);
+		bool brWall = isWall(mapBlock[(int)TileDir.BOTTOMRIGHT]);
+
+		bool tOpen = isEmpty(mapBlock[(int)TileDir.TOP]);
+		bool lOpen = isEmpty(mapBlock[(int)TileDir.LEFT]);
+		bool bOpen = isEmpty(mapBlock[(int)TileDir.BOTTOM]);
+		bool rOpen = isEmpty(mapBlock[(int)TileDir.RIGHT]);
 
 		//check for corners
-		if ((tWall && rWall && !lWall && !bWall) ||
-		    (tWall && !rWall && lWall && !bWall) ||
-		    (!tWall && !rWall && lWall && bWall) ||
-		    (!tWall && rWall && !lWall && bWall))
+		if (isCorner (tWall, lWall, bWall, rWall)) {
 			theWallShape = WallShape.CORNER;
-			
+
+			if (tWall && rWall && trWall)
+				theWallDir = TileDir.BOTTOMLEFT; //2x
+			else if (tWall && rWall && blWall)
+				theWallDir = TileDir.BOTTOMLEFT; //1x
+			else if (tWall && lWall && tlWall)
+				theWallDir = TileDir.BOTTOMRIGHT; //2x
+			else if (tWall && lWall && brWall)
+				theWallDir = TileDir.BOTTOMRIGHT; //1x
+			else if (bWall && rWall && brWall)
+				theWallDir = TileDir.TOPLEFT; //2x
+			else if (bWall && rWall && tlWall)
+				theWallDir = TileDir.TOPLEFT; //1x
+			else if (bWall && lWall && blWall)
+				theWallDir = TileDir.TOPRIGHT; //2x
+			else if (bWall && lWall && blWall)
+				theWallDir = TileDir.BOTTOMLEFT; //1x
+		}
 		//check for flats
-		else if ((tWall && !rWall && !lWall && bWall) ||
-		         (!tWall && rWall && lWall && !bWall) )
+		else if (isFlat(tWall, lWall, bWall, rWall))
 			theWallShape = WallShape.FLAT;
 		else
 			theWallShape = WallShape.NONE;
+
+		//check for direction
+
 
 		theWallInfo.Shape = theWallShape;
 		theWallInfo.Dir = theWallDir;
