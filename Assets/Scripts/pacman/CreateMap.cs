@@ -21,11 +21,29 @@ public class CreateMap : MonoBehaviour {
 	};
 	enum WallShape
 	{
+		NONE,
 		FLAT,
 		CORNER,
 		CORNER2,
 		TEE,
 	};
+	enum OrientCorner
+	{
+		NONE,
+		TOPRIGHT,
+		TOPLEFT,
+		BOTTOMLEFT,
+		BOTTOMRIGHT,
+	};
+	enum OrientFlat
+	{
+		NONE,
+		TOP,
+		LEFT,
+		BOTTOM,
+		RIGHT,
+	};
+
 	// Use this for initialization
 	void Start () {
 		string input = File.ReadAllText( "Assets/Maps/pacman/level1.txt" );
