@@ -320,8 +320,9 @@ public class CreateMap : MonoBehaviour {
 					for (jj = 0; jj < 3; jj++){
 						cellBlock[ii,jj] = "x";
 						theNeighbors[iineighbor] = TileType.OFFMAP;
+						iineighbor++;
 					}
-					iineighbor++;
+
 				}
 				//get neighbors
 				iineighbor = 0;
