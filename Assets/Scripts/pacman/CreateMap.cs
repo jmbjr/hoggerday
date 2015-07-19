@@ -769,9 +769,9 @@ public class CreateMap : MonoBehaviour {
 					if (thePrefab != ""){
 						//Debug.Log (i.ToString()+","+j.ToString()+":"+thePrefab);
 						UnityEngine.Object prefab2 = AssetDatabase.LoadAssetAtPath(thePrefab, typeof(GameObject));
-						GameObject clone2 = Instantiate(prefab2, new Vector3(j + Xoff, numrows - i +Yoff, 0), Quaternion.Euler(0, 0, Zrot)) as GameObject;
-						clone2.transform.localScale = new Vector3(Xscale,Yscale,1); 
-					}
+						GameObject clone2 = Instantiate(prefab2, new Vector3(j + Xoff+1, numrows - i +Yoff, 0), Quaternion.Euler(0, 0, Zrot)) as GameObject;
+						clone2.transform.localScale = new Vector3(Xscale,Yscale,1);
+				}
 					break;
 
 				default: 
