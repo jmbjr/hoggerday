@@ -69,6 +69,8 @@ public class CreateMap : MonoBehaviour {
 						GameObject clone = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 						clone.transform.position = new Vector3(j + 1, numrows - i , 0);
 						break;
+					case TileType.BLANK:
+						break;
 					default: // let's parse further to determine which map piece to add
 						for (iioff = -1; iioff < 2; iioff++){
 							for (jjoff = -1; jjoff < 2; jjoff++) {
