@@ -7,7 +7,7 @@ using System;
 public class CreateMap : MonoBehaviour {
 	//enums
 	#region
-	enum TileType
+	public enum TileType
 	{
 		PATH,
 		SINGLE,
@@ -21,7 +21,7 @@ public class CreateMap : MonoBehaviour {
 		BLANK,
 		OFFMAP,
 	};
-	enum WallShape
+	public enum WallShape
 	{
 		NONE,
 		FLAT,
@@ -29,7 +29,7 @@ public class CreateMap : MonoBehaviour {
 		CORNER2,
 		TEE,
 	};
-	enum TileNeighbor
+	public enum TileDir
 	{
 		TOPLEFT,
 		TOP,
