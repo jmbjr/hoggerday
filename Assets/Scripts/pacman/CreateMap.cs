@@ -71,11 +71,14 @@ public class CreateMap : MonoBehaviour {
 		for (i = 0; i < numrows; i++){
 			for (j = 0; j < numcols; j++) {
 				TileType theTile = (TileType)maparray[i,j];
+				iineighbor = 0;
 				//initialize cellblock to all 'x'. this feels really inefficient.
 				for (ii = 0; ii < 3; ii++){
 					for (jj = 0; jj < 3; jj++){
 						cellBlock[ii,jj] = "x";
+						theNeighbors[iineighbor] = TileType.OFFMAP;
 					}
+					iineighbor++;
 				}
 				//get neighbors
 				iineighbor = 0;
