@@ -5,6 +5,8 @@ using System.IO;
 using System;
 
 public class CreateMap : MonoBehaviour {
+	//enums
+	#region
 	enum TileType
 	{
 		PATH,
@@ -43,6 +45,7 @@ public class CreateMap : MonoBehaviour {
 		BOTTOM,
 		RIGHT,
 	};
+	#endregion
 
 	// Use this for initialization
 	void Start () {
@@ -79,6 +82,20 @@ public class CreateMap : MonoBehaviour {
 						cellBlock2[ii,jj] = TileType.OFFMAP;
 					}
 				}
+				//get neighbors
+				for (iioff = -1; iioff < 2; iioff++){
+					for (jjoff = -1; jjoff < 2; jjoff++) {
+						if (i+iioff >=0 && i+iioff < numrows && j+jjoff >=0 && j+jjoff < numcols) { //valid i,j indices 
+							cellBlock[iioff+1, jjoff+1] =  maparray[i+iioff, j+jjoff].ToString();
+						}
+					}
+				}
+				//expand to single string
+				theCode="";
+				for (ii = 0; ii < 3; ii++){
+					for (jj = 0; jj < 3; jj++)
+						theCode=theCode + cellBlock[ii,jj];
+				}
 				#region 
 				switch (theTile)
 				{
@@ -89,20 +106,8 @@ public class CreateMap : MonoBehaviour {
 						break;
 					case TileType.BLANK:
 						break;
-					default: // let's parse further to determine which map piece to add
-						for (iioff = -1; iioff < 2; iioff++){
-							for (jjoff = -1; jjoff < 2; jjoff++) {
-								if (i+iioff >=0 && i+iioff < numrows && j+jjoff >=0 && j+jjoff < numcols) { //valid i,j indices 
-									cellBlock[iioff+1, jjoff+1] =  maparray[i+iioff, j+jjoff].ToString();
-								}
-							}
-						}
-						//Debug.Log(i.ToString() + "," + j.ToString());
-						theCode="";
-						for (ii = 0; ii < 3; ii++){
-							for (jj = 0; jj < 3; jj++)
-								theCode=theCode + cellBlock[ii,jj];
-						}
+					case TileType.SINGLE:// let's parse further to determine which map piece to add
+					case TileType.DOUBLE:
 
 						//Debug.Log(theCode);
 						Xscale = 1;
@@ -512,6 +517,9 @@ public class CreateMap : MonoBehaviour {
 						GameObject clone2 = Instantiate(prefab2, new Vector3(j + Xoff, numrows - i +Yoff, 0), Quaternion.Euler(0, 0, Zrot)) as GameObject;
 						clone2.transform.localScale = new Vector3(Xscale,Yscale,1); 
 					}
+					break;
+
+				default: 
 					break;
 				}
 				#endregion
