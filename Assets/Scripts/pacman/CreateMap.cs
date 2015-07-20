@@ -21,7 +21,7 @@ public class CreateMap : MonoBehaviour {
 		        (!boolWalls.TOP && !boolWalls.RIGHT && boolWalls.LEFT && boolWalls.BOTTOM) ||
 		        (!boolWalls.TOP && boolWalls.RIGHT && !boolWalls.LEFT && boolWalls.BOTTOM));
 	}
-	public static bool isFlat(boolDir boolWalls)
+	public static bool isFlat(boolDir boolWalls, TileType theTile)
 	{
 		return ((boolWalls.TOP &&  boolWalls.BOTTOM && (!boolWalls.RIGHT || !boolWalls.LEFT)) ||
 		        (boolWalls.LEFT && boolWalls.RIGHT && (!boolWalls.TOP || !boolWalls.BOTTOM)) );
@@ -396,14 +396,17 @@ public class CreateMap : MonoBehaviour {
 		if (isCorner (boolWalls)) {
 			theWallShape = WallShape.CORNER;
 			theWallDir = cornerDir(boolWalls, boolEmpty, thisTile);
-
+		}
+		//check for tees before flats since tees almost look like flats
+		else if (isTee(boolWalls, boolEmpty)) {
+			theWallShape = WallShape.TEE;
+			theWallDir = teeDir(boolWalls, boolEmpty, thisTile);
 		}
 		//check for flats
 		else if (isFlat(boolWalls)){
 			theWallShape = WallShape.FLAT;
 			theWallDir = flatDir(boolWalls, boolEmpty, thisTile);
 		}
-
 		else
 			theWallShape = WallShape.NONE;
 
