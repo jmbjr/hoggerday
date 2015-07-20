@@ -7,7 +7,7 @@ using System;
 public class CreateMap : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-		string input = File.ReadAllText( @"c:\dev\hoggerday\Assets\Maps\pacman\level1.txt" );
+		string input = File.ReadAllText( "Assets/Maps/pacman/level1.txt" );
 
 		int i = 0, j = 0, ii = 0, jj = 0, iioff = 0, jjoff = 0, Zrot=0;
 		float Xoff=0, Yoff=0, Xscale = 1, Yscale = 1;
