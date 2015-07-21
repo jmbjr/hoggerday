@@ -124,6 +124,35 @@ public class CreateMap : MonoBehaviour {
 		}
 		return theWallDir;
 	}
+
+	public static TileDir teeDir(boolDir boolOffmap, boolDir boolEmpty, TileType thisTile)
+	{
+		TileDir theWallDir = TileDir.MIDDLE;
+
+		switch (thisTile)
+		{
+		case TileType.DOUBLE:
+			//2x
+			if (boolEmpty.BOTTOMLEFT && boolOffmap.TOP)
+				theWallDir = TileDir.TOPLEFT; //2x tee
+			else if (boolEmpty.BOTTOMRIGHT && boolOffmap.TOP)
+				theWallDir = TileDir.TOPRIGHT; //2x tee
+			else if (boolEmpty.TOPLEFT && boolOffmap.RIGHT)
+				theWallDir = TileDir.RIGHTTOP; //2x tee
+			else if (boolEmpty.BOTTOMLEFT && boolOffmap.RIGHT)
+				theWallDir = TileDir.RIGHTBOTTOM; //2x tee
+			else if (boolEmpty.TOPRIGHT && boolOffmap.LEFT)
+				theWallDir = TileDir.LEFTTOP; //2x tee
+			else if (boolEmpty.BOTTOMRIGHT && boolOffmap.LEFT)
+				theWallDir = TileDir.LEFTBOTTOM; //2x tee
+			else if (boolEmpty.TOPLEFT && boolOffmap.BOTTOM)
+				theWallDir = TileDir.BOTTOMLEFT; //2x tee
+			else if (boolEmpty.TOPRIGHT && boolOffmap.BOTTOM)
+				theWallDir = TileDir.BOTTOMRIGHT; //2x tee
+			break;
+		}
+		return theWallDir;
+	}
 	public static TileDir flipDir(TileDir theWallDir)
 	{
 		if (theWallDir == TileDir.TOP)
@@ -309,6 +338,11 @@ public class CreateMap : MonoBehaviour {
 		BOTTOMLEFT,
 		BOTTOM,
 		BOTTOMRIGHT,
+		//these are used for tees.
+		LEFTTOP,
+		LEFTBOTTOM,
+		RIGHTTOP,
+		RIGHTBOTTOM,
 	};
 	#endregion
 
@@ -463,13 +497,20 @@ public class CreateMap : MonoBehaviour {
 			theWallShape = WallShape.CORNER;
 			theWallDir = cornerDir(boolWalls, boolEmpty, thisTile);
 		}
-		else if (bFlat){
+		else if (bFlat) {
 			if (bBorder)
 				thisTile = TileType.DOUBLE;
 			else
 				thisTile = TileType.SINGLE;
-			theWallShape = WallShape.FLAT;
-			theWallDir = flatDir(boolWalls, boolEmpty, thisTile);
+
+			if (bTee && bBorder)  {//tees and flats look similar now. if we have a tee with a border, call it a tee
+				theWallShape = WallShape.TEE;
+				theWallDir = teeDir(boolOffmap, boolEmpty, thisTile);
+			}
+			else {
+				theWallShape = WallShape.FLAT;
+				theWallDir = flatDir(boolWalls, boolEmpty, thisTile);
+			}
 		}
 		else
 			theWallShape = WallShape.NONE;
