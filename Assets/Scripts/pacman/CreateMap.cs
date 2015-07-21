@@ -40,6 +40,20 @@ public class CreateMap : MonoBehaviour {
 
 		return (b1 || b2 || b3 || b4);		 
 	}
+	public static bool isCorner2(boolDir boolWalls)
+	{
+		bool b1 = false;
+		bool b2 = false;
+		bool b3 = false;
+		bool b4 = false;
+		
+		b1 = boolWalls.TOP && boolWalls.RIGHT && boolWalls.LEFT && boolWalls.BOTTOM && !boolWalls.TOPRIGHT && boolWalls.TOPLEFT && boolWalls.BOTTOMRIGHT && boolWalls.BOTTOMLEFT;
+		b2 = boolWalls.TOP && boolWalls.RIGHT && boolWalls.LEFT && boolWalls.BOTTOM && boolWalls.TOPRIGHT && !boolWalls.TOPLEFT && boolWalls.BOTTOMRIGHT && boolWalls.BOTTOMLEFT;
+		b3 = boolWalls.TOP && boolWalls.RIGHT && boolWalls.LEFT && boolWalls.BOTTOM && boolWalls.TOPRIGHT && boolWalls.TOPLEFT && !boolWalls.BOTTOMRIGHT && boolWalls.BOTTOMLEFT;
+		b4 = boolWalls.TOP && boolWalls.RIGHT && boolWalls.LEFT && boolWalls.BOTTOM && boolWalls.TOPRIGHT && boolWalls.TOPLEFT && boolWalls.BOTTOMRIGHT && !boolWalls.BOTTOMLEFT;
+		
+		return (b1 || b2 || b3 || b4);		 
+	}
 	public static bool isTee(boolDir boolWalls) // wall on one side, but not the other
 	{
 		bool b1 = false;
@@ -153,6 +167,27 @@ public class CreateMap : MonoBehaviour {
 		}
 		return theWallDir;
 	}
+	public static TileDir corner2Dir(boolDir boolEmpty, TileType thisTile)
+	{
+		TileDir theWallDir = TileDir.MIDDLE;
+		
+		switch (thisTile)
+		{
+		case TileType.SINGLE:
+			//1x
+			if (boolEmpty.BOTTOMRIGHT)
+				theWallDir = TileDir.BOTTOMRIGHT; //1x corner2
+			else if (boolEmpty.BOTTOMLEFT)
+				theWallDir = TileDir.BOTTOMLEFT; //1x corner2
+			else if (boolEmpty.TOPRIGHT)
+				theWallDir = TileDir.TOPRIGHT; //1x corner2
+			else if (boolEmpty.TOPLEFT)
+				theWallDir = TileDir.TOPLEFT; //1x corner2
+			break;
+		}
+		return theWallDir;
+	}
+
 	public static TileDir flipDir(TileDir theWallDir)
 	{
 		if (theWallDir == TileDir.TOP)
@@ -299,12 +334,37 @@ public class CreateMap : MonoBehaviour {
 			}
 			break;
 
-		case WallShape.TEE:
+		case WallShape.CORNER2:
 			switch (theWallInfo.Type)
 			{
 			case TileType.SINGLE:
 				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_1x_corner2.prefab";
 				break;
+			}
+			//set Zrot
+			switch (theWallInfo.Dir)
+			{
+			case TileDir.BOTTOMRIGHT:
+				thisPrefab.Zrot = 0;
+				break;
+			case TileDir.TOPRIGHT:
+				thisPrefab.Zrot = 90;
+				break;
+			case TileDir.BOTTOMLEFT:
+				thisPrefab.Zrot = -90;
+				break;
+			case TileDir.TOPLEFT:
+				thisPrefab.Zrot = 180;
+				break;
+			default:
+				thisPrefab.Zrot = -45;
+				break;
+			}
+			break;
+
+		case WallShape.TEE:
+			switch (theWallInfo.Type)
+			{
 			case TileType.DOUBLE:
 				thisPrefab.prefab =  "Assets/Prefabs/pacman/wall_2x_tee.prefab";
 				break;
@@ -534,31 +594,32 @@ public class CreateMap : MonoBehaviour {
 		bool bCorner = isCorner(boolWalls);
 		bool bFlat = isFlat(boolWalls);
 		bool bBorder = isBorder(boolOffmap);
-		bool bTee = isTee(boolWalls);
+		bool bTee = isTee(boolWalls) && bBorder;
+		bool bCorner2 = isCorner2(boolWalls);
+
+		if (bBorder)
+			thisTile = TileType.DOUBLE;
+		else
+			thisTile = TileType.SINGLE;
 
 		//check for corners
 		if (bCorner) {
-			if (bBorder)
-				thisTile = TileType.DOUBLE;
-			else
-				thisTile = TileType.SINGLE;
 			theWallShape = WallShape.CORNER;
 			theWallDir = cornerDir(boolWalls, boolEmpty, thisTile);
 		}
+		else if (bTee)  {
+			thisTile = TileType.DOUBLE; // this should be redundant
+			theWallShape = WallShape.TEE;
+			theWallDir = teeDir(boolOffmap, boolEmpty, thisTile);
+		}
+		else if (bCorner2)  { 
+			thisTile = TileType.SINGLE; //this should be redundant
+			theWallShape = WallShape.CORNER2;
+			theWallDir = corner2Dir(boolEmpty, thisTile);
+		}
 		else if (bFlat) {
-			if (bBorder)
-				thisTile = TileType.DOUBLE;
-			else
-				thisTile = TileType.SINGLE;
-
-			if (bTee && bBorder)  {//tees and flats look similar now. if we have a tee with a border, call it a tee
-				theWallShape = WallShape.TEE;
-				theWallDir = teeDir(boolOffmap, boolEmpty, thisTile);
-			}
-			else {
-				theWallShape = WallShape.FLAT;
-				theWallDir = flatDir(boolWalls, boolEmpty, thisTile);
-			}
+			theWallShape = WallShape.FLAT;
+			theWallDir = flatDir(boolWalls, boolEmpty, thisTile);
 		}
 		else
 			theWallShape = WallShape.NONE;
