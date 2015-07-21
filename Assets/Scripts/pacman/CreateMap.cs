@@ -9,7 +9,7 @@ public class CreateMap : MonoBehaviour {
 	//CHECK A TILE
 	public static bool isWall(TileType theType)
 	{
-		return theType == TileType.SINGLE || theType == TileType.DOUBLE;
+		return theType == TileType.SINGLE || theType == TileType.DOUBLE || theType == TileType.THIN;
 	}
 	public static bool isEmpty(TileType theType)
 	{
@@ -19,8 +19,19 @@ public class CreateMap : MonoBehaviour {
 	{
 		return theType == TileType.OFFMAP;
 	}
+	public static bool isBlanktile(TileType theType)
+	{
+		return theType == TileType.BLANK;
+	}
 
 	//CHECK A BOOLDIR STRUCT
+	public static bool isGhostbox(boolDir boolGhostbox)
+	{ 
+		//can only be a ghostbox if there's a single blank since blanks are only for ghostboxes
+		return (boolGhostbox.TOP || boolGhostbox.RIGHT || boolGhostbox.LEFT || boolGhostbox.BOTTOM ||
+		        boolGhostbox.TOPRIGHT || boolGhostbox.TOPLEFT || boolGhostbox.BOTTOMRIGHT || boolGhostbox.BOTTOMLEFT);
+	}
+
 	public static bool isBorder(boolDir boolOffmap)
 	{
 		return (boolOffmap.TOP || boolOffmap.RIGHT || boolOffmap.LEFT || boolOffmap.BOTTOM ||
@@ -83,6 +94,7 @@ public class CreateMap : MonoBehaviour {
 		switch (thisTile)
 		{
 		case TileType.SINGLE:
+		case TileType.THIN:
 			if (boolWalls.TOP && boolWalls.RIGHT && boolEmpty.BOTTOMLEFT)
 				theWallDir = TileDir.BOTTOMLEFT; //1x
 			else if (boolWalls.TOP && boolWalls.LEFT && boolEmpty.BOTTOMRIGHT)
@@ -213,6 +225,23 @@ public class CreateMap : MonoBehaviour {
 	}
 
 	//RETURN BOOLDIR STRUCT BASED ON A MAPBLOCK
+	public static boolDir checkGhostbox(TileType[] mapBlock)
+	{
+		boolDir boolGhostbox = new boolDir();
+
+		boolGhostbox.TOP = isBlanktile(mapBlock[(int)TileDir.TOP]);
+		boolGhostbox.LEFT = isBlanktile(mapBlock[(int)TileDir.LEFT]);
+		boolGhostbox.BOTTOM = isBlanktile(mapBlock[(int)TileDir.BOTTOM]);
+		boolGhostbox.RIGHT = isBlanktile(mapBlock[(int)TileDir.RIGHT]);
+		
+		boolGhostbox.TOPLEFT = isBlanktile(mapBlock[(int)TileDir.TOPLEFT]);
+		boolGhostbox.TOPRIGHT = isBlanktile(mapBlock[(int)TileDir.TOPRIGHT]);
+		boolGhostbox.BOTTOMLEFT = isBlanktile(mapBlock[(int)TileDir.BOTTOMLEFT]);
+		boolGhostbox.BOTTOMRIGHT = isBlanktile(mapBlock[(int)TileDir.BOTTOMRIGHT]);
+
+		return boolGhostbox;
+	}
+	
 	public static boolDir checkOffmap(TileType[] mapBlock)
 	{
 		boolDir boolOffmap = new boolDir();
@@ -282,6 +311,9 @@ public class CreateMap : MonoBehaviour {
 				break;
 			case TileType.DOUBLE:
 				thisPrefab.prefab =  "Assets/Prefabs/pacman/wall_2x_corner.prefab";
+				break;
+			case TileType.THIN:
+				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_square_corner.prefab";
 				break;
 			}
 			switch (theWallInfo.Dir)
@@ -545,10 +577,10 @@ public class CreateMap : MonoBehaviour {
 					GameObject clone = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 					clone.transform.position = new Vector3(j + 1, numrows - i , 0);
 					break;
-				case TileType.BLANK:
-					break;
 				case TileType.SINGLE:// let's parse further to determine which map piece to add
 				case TileType.DOUBLE:
+				case TileType.BLANK:
+				case TileType.THIN:
 					theWallInfo = getWallShape(theNeighbors);
 					thisPrefab = setPrefab(theWallInfo);
 
@@ -585,10 +617,12 @@ public class CreateMap : MonoBehaviour {
 		boolDir boolWalls = new boolDir();
 		boolDir boolEmpty = new boolDir();
 		boolDir boolOffmap = new boolDir();
+		boolDir boolGhostbox = new boolDir();
 
 		boolOffmap = checkOffmap(mapBlock);
 		boolWalls = checkWalls(mapBlock);
 		boolEmpty = checkEmpty(mapBlock);
+		boolGhostbox = checkGhostbox(mapBlock);
 
 		//check to characterize the tile
 		bool bCorner = isCorner(boolWalls);
@@ -596,10 +630,13 @@ public class CreateMap : MonoBehaviour {
 		bool bBorder = isBorder(boolOffmap);
 		bool bTee = isTee(boolWalls) && bBorder;
 		bool bCorner2 = isCorner2(boolWalls);
+		bool bGhostbox = isGhostbox(boolGhostbox);
 
 		if (bBorder)
 			thisTile = TileType.DOUBLE;
-		else
+		else if (bGhostbox) //ghost box type=THIN
+			thisTile = TileType.THIN;
+		else //it's a single
 			thisTile = TileType.SINGLE;
 
 		//check for corners
