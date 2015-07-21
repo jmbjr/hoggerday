@@ -16,12 +16,33 @@ public class CreateMap : MonoBehaviour {
 	}
 	public static bool isCorner(boolDir boolWalls)
 	{
-		return ((boolWalls.TOP && boolWalls.RIGHT && !boolWalls.LEFT && !boolWalls.BOTTOM) ||
-		        (boolWalls.TOP && !boolWalls.RIGHT && boolWalls.LEFT && !boolWalls.BOTTOM) ||
-		        (!boolWalls.TOP && !boolWalls.RIGHT && boolWalls.LEFT && boolWalls.BOTTOM) ||
-		        (!boolWalls.TOP && boolWalls.RIGHT && !boolWalls.LEFT && boolWalls.BOTTOM));
+		bool b1 = false;
+		bool b2 = false;
+		bool b3 = false;
+		bool b4 = false;
+
+		b1 = boolWalls.TOP && boolWalls.RIGHT && !boolWalls.LEFT && !boolWalls.BOTTOM;
+		b2 = boolWalls.TOP && !boolWalls.RIGHT && boolWalls.LEFT && !boolWalls.BOTTOM;
+		b3 = !boolWalls.TOP && !boolWalls.RIGHT && boolWalls.LEFT && boolWalls.BOTTOM;
+		b4 = !boolWalls.TOP && boolWalls.RIGHT && !boolWalls.LEFT && boolWalls.BOTTOM;
+
+		return (b1 || b2 || b3 || b4);		 
 	}
-	public static bool isFlat(boolDir boolWalls, TileType theTile)
+	public static bool isTee(boolDir boolWalls) // wall on one side, but not the other
+	{
+		bool b1 = false;
+		bool b2 = false;
+		bool b3 = false;
+		bool b4 = false;
+
+		b1 = boolWalls.TOP &&  boolWalls.BOTTOM && !boolWalls.RIGHT && boolWalls.LEFT;
+		b2 = boolWalls.TOP &&  boolWalls.BOTTOM && boolWalls.RIGHT && !boolWalls.LEFT;
+		b3 = boolWalls.LEFT && boolWalls.RIGHT && !boolWalls.TOP && boolWalls.BOTTOM;
+		b4 = boolWalls.LEFT && boolWalls.RIGHT && boolWalls.TOP && !boolWalls.BOTTOM;
+
+		return (b1 || b2 || b3 || b4);		 
+	}
+	public static bool isFlat(boolDir boolWalls)
 	{
 		return ((boolWalls.TOP &&  boolWalls.BOTTOM && (!boolWalls.RIGHT || !boolWalls.LEFT)) ||
 		        (boolWalls.LEFT && boolWalls.RIGHT && (!boolWalls.TOP || !boolWalls.BOTTOM)) );
