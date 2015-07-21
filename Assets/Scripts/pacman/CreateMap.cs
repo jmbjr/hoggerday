@@ -298,6 +298,54 @@ public class CreateMap : MonoBehaviour {
 				break;
 			}
 			break;
+
+		case WallShape.TEE:
+			switch (theWallInfo.Type)
+			{
+			case TileType.SINGLE:
+				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_1x_corner2.prefab";
+				break;
+			case TileType.DOUBLE:
+				thisPrefab.prefab =  "Assets/Prefabs/pacman/wall_2x_tee.prefab";
+				break;
+			}
+			//set Zrot
+			switch (theWallInfo.Dir)
+			{
+			case TileDir.TOPLEFT:
+			case TileDir.TOPRIGHT:
+				thisPrefab.Zrot = 0;
+				break;
+			case TileDir.LEFTTOP:
+			case TileDir.LEFTBOTTOM:
+				thisPrefab.Zrot = 90;
+				break;
+			case TileDir.RIGHTTOP:
+			case TileDir.RIGHTBOTTOM:
+				thisPrefab.Zrot = -90;
+				break;
+			case TileDir.BOTTOMLEFT:
+			case TileDir.BOTTOMRIGHT:
+				thisPrefab.Zrot = 180;
+				break;
+			default:
+				thisPrefab.Zrot = -45;
+				break;
+			}
+			//set mirroring 
+			switch (theWallInfo.Dir)
+			{
+			case TileDir.TOPLEFT:
+			case TileDir.LEFTBOTTOM:
+			case TileDir.RIGHTTOP:
+			case TileDir.BOTTOMRIGHT:
+				thisPrefab.Xscale = -1.0f;
+				break;
+			default:
+				thisPrefab.Xscale = 1.0f;
+				break;
+			}
+			break;
 		}
 		return thisPrefab;
 	}
