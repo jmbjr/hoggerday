@@ -439,24 +439,35 @@ public class CreateMap : MonoBehaviour {
 		WallShape theWallShape = WallShape.NONE;
 		TileDir theWallDir = TileDir.MIDDLE;
 		WallInfo theWallInfo;
+
 		boolDir boolWalls = new boolDir();
 		boolDir boolEmpty = new boolDir();
+		boolDir boolOffmap = new boolDir();
 
+		boolOffmap = checkOffmap(mapBlock);
 		boolWalls = checkWalls(mapBlock);
 		boolEmpty = checkEmpty(mapBlock);
 
+		//check to characterize the tile
+		bool bCorner = isCorner(boolWalls);
+		bool bFlat = isFlat(boolWalls);
+		bool bBorder = isBorder(boolOffmap);
+		bool bTee = isTee(boolWalls);
+
 		//check for corners
-		if (isCorner (boolWalls)) {
+		if (bCorner) {
+			if (bBorder)
+				thisTile = TileType.DOUBLE;
+			else
+				thisTile = TileType.SINGLE;
 			theWallShape = WallShape.CORNER;
 			theWallDir = cornerDir(boolWalls, boolEmpty, thisTile);
 		}
-		//check for tees before flats since tees almost look like flats
-		else if (isTee(boolWalls, boolEmpty)) {
-			theWallShape = WallShape.TEE;
-			theWallDir = teeDir(boolWalls, boolEmpty, thisTile);
-		}
-		//check for flats
-		else if (isFlat(boolWalls)){
+		else if (bFlat){
+			if (bBorder)
+				thisTile = TileType.DOUBLE;
+			else
+				thisTile = TileType.SINGLE;
 			theWallShape = WallShape.FLAT;
 			theWallDir = flatDir(boolWalls, boolEmpty, thisTile);
 		}
