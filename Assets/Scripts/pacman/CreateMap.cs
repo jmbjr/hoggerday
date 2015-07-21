@@ -6,6 +6,7 @@ using System;
 
 
 public class CreateMap : MonoBehaviour {
+	//CHECK A TILE
 	public static bool isWall(TileType theType)
 	{
 		return theType == TileType.SINGLE || theType == TileType.DOUBLE;
@@ -13,6 +14,17 @@ public class CreateMap : MonoBehaviour {
 	public static bool isEmpty(TileType theType)
 	{
 		return theType == TileType.BLANK || theType == TileType.PATH;
+	}
+	public static bool isOffmap(TileType theType)
+	{
+		return theType == TileType.OFFMAP;
+	}
+
+	//CHECK A BOOLDIR STRUCT
+	public static bool isBorder(boolDir boolOffmap)
+	{
+		return (boolOffmap.TOP || boolOffmap.RIGHT || boolOffmap.LEFT || boolOffmap.BOTTOM ||
+		        boolOffmap.TOPRIGHT || boolOffmap.TOPLEFT || boolOffmap.BOTTOMRIGHT || boolOffmap.BOTTOMLEFT);
 	}
 	public static bool isCorner(boolDir boolWalls)
 	{
@@ -47,6 +59,8 @@ public class CreateMap : MonoBehaviour {
 		return ((boolWalls.TOP &&  boolWalls.BOTTOM && (!boolWalls.RIGHT || !boolWalls.LEFT)) ||
 		        (boolWalls.LEFT && boolWalls.RIGHT && (!boolWalls.TOP || !boolWalls.BOTTOM)) );
 	}
+
+	//CHECK BOOLDIR STRUCT FOR ORIENTATION
 	public static TileDir cornerDir(boolDir boolWalls, boolDir boolEmpty, TileType thisTile)
 	{
 		TileDir theWallDir = TileDir.MIDDLE;
@@ -132,6 +146,24 @@ public class CreateMap : MonoBehaviour {
 			return TileDir.MIDDLE;	
 		else 
 			return theWallDir;
+	}
+
+	//RETURN BOOLDIR STRUCT BASED ON A MAPBLOCK
+	public static boolDir checkOffmap(TileType[] mapBlock)
+	{
+		boolDir boolOffmap = new boolDir();
+		
+		boolOffmap.TOP = isOffmap(mapBlock[(int)TileDir.TOP]);
+		boolOffmap.LEFT = isOffmap(mapBlock[(int)TileDir.LEFT]);
+		boolOffmap.BOTTOM = isOffmap(mapBlock[(int)TileDir.BOTTOM]);
+		boolOffmap.RIGHT = isOffmap(mapBlock[(int)TileDir.RIGHT]);
+		
+		boolOffmap.TOPLEFT = isOffmap(mapBlock[(int)TileDir.TOPLEFT]);
+		boolOffmap.TOPRIGHT = isOffmap(mapBlock[(int)TileDir.TOPRIGHT]);
+		boolOffmap.BOTTOMLEFT = isOffmap(mapBlock[(int)TileDir.BOTTOMLEFT]);
+		boolOffmap.BOTTOMRIGHT = isOffmap(mapBlock[(int)TileDir.BOTTOMRIGHT]);
+		
+		return boolOffmap;
 	}
 	public static boolDir checkWalls(TileType[] mapBlock)
 	{
