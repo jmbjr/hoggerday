@@ -119,7 +119,7 @@ public class CreateMap : MonoBehaviour {
 		}
 		return theWallDir;
 	}
-	public static TileDir flatDir(boolDir boolWalls, boolDir boolEmpty, TileType thisTile)
+	public static TileDir flatDir(boolDir boolWalls, boolDir boolEmpty, boolDir boolGhostbox, TileType thisTile)
 	{
 		TileDir theWallDir = TileDir.MIDDLE;
 
@@ -145,6 +145,17 @@ public class CreateMap : MonoBehaviour {
 			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.TOP)
 				theWallDir = TileDir.BOTTOM; //2x
 			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.BOTTOM)
+				theWallDir = TileDir.TOP; //2x
+			break;
+		case TileType.THIN:
+			//thin
+			if (boolWalls.TOP && boolWalls.BOTTOM && boolGhostbox.RIGHT)
+				theWallDir = TileDir.LEFT; //2x
+			else if (boolWalls.TOP && boolWalls.BOTTOM && boolGhostbox.LEFT) //
+				theWallDir = TileDir.RIGHT; //2x
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolGhostbox.TOP) //
+				theWallDir = TileDir.BOTTOM; //2x
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolGhostbox.BOTTOM)
 				theWallDir = TileDir.TOP; //2x
 			break;
 		}
@@ -344,6 +355,9 @@ public class CreateMap : MonoBehaviour {
 				break;
 			case TileType.DOUBLE:
 				thisPrefab.prefab =  "Assets/Prefabs/pacman/wall_2x_flat.prefab";
+				break;
+			case TileType.THIN:
+				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_square_flat.prefab";
 				break;
 			}
 			switch (theWallInfo.Dir)
@@ -579,8 +593,6 @@ public class CreateMap : MonoBehaviour {
 					break;
 				case TileType.SINGLE:// let's parse further to determine which map piece to add
 				case TileType.DOUBLE:
-				case TileType.BLANK:
-				case TileType.THIN:
 					theWallInfo = getWallShape(theNeighbors);
 					thisPrefab = setPrefab(theWallInfo);
 
@@ -656,7 +668,7 @@ public class CreateMap : MonoBehaviour {
 		}
 		else if (bFlat) {
 			theWallShape = WallShape.FLAT;
-			theWallDir = flatDir(boolWalls, boolEmpty, thisTile);
+			theWallDir = flatDir(boolWalls, boolEmpty, boolGhostbox, thisTile);
 		}
 		else
 			theWallShape = WallShape.NONE;
