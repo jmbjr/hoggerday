@@ -29,6 +29,21 @@ public class CreateMap : MonoBehaviour {
 	}
 
 	//CHECK A BOOLDIR STRUCT
+	public static bool isGhosthinge(boolDir boolGhostbox, boolDir boolPath, boolDir boolBlank, boolDir boolWalls)
+	{ 
+		//can only be a ghost gate if it's a BLANK tile next to another BLANK tile with PATH on one side and BLANK on the other
+		bool b1 = false;
+		bool b2 = false;
+		bool b3 = false;
+		bool b4 = false;
+		
+		b1 = boolPath.TOP && ((boolGhostbox.RIGHT &&  boolWalls.LEFT) || (boolWalls.RIGHT &&  boolGhostbox.LEFT)) && boolGhostbox.BOTTOM;
+		b2 = boolGhostbox.TOP && ((boolGhostbox.RIGHT &&  boolWalls.LEFT) || (boolWalls.RIGHT &&  boolGhostbox.LEFT)) && boolPath.BOTTOM;
+		b3 = boolPath.RIGHT && ((boolGhostbox.TOP &&  boolWalls.BOTTOM) || (boolWalls.TOP &&  boolGhostbox.BOTTOM)) && boolGhostbox.LEFT;
+		b4 = boolGhostbox.RIGHT && ((boolGhostbox.TOP &&  boolWalls.BOTTOM) || (boolWalls.TOP &&  boolGhostbox.BOTTOM)) && boolPath.LEFT;
+		
+		return (b1 || b2 || b3 || b4);		
+	}
 	public static bool isGhostgate(boolDir boolGhostbox, boolDir boolPath, boolDir boolBlank)
 	{ 
 		//can only be a ghost gate if it's a BLANK tile next to another BLANK tile with PATH on one side and BLANK on the other
@@ -168,24 +183,43 @@ public class CreateMap : MonoBehaviour {
 		case TileType.THIN:
 			//thin
 			if (boolWalls.TOP && boolWalls.BOTTOM && boolGhostbox.RIGHT)
-				theWallDir = TileDir.LEFT; //2x
+				theWallDir = TileDir.LEFT; //thin
 			else if (boolWalls.TOP && boolWalls.BOTTOM && boolGhostbox.LEFT) //
-				theWallDir = TileDir.RIGHT; //2x
+				theWallDir = TileDir.RIGHT; //thin
 			else if (boolWalls.LEFT && boolWalls.RIGHT && boolGhostbox.TOP) //
-				theWallDir = TileDir.BOTTOM; //2x
+				theWallDir = TileDir.BOTTOM; //thin
 			else if (boolWalls.LEFT && boolWalls.RIGHT && boolGhostbox.BOTTOM)
-				theWallDir = TileDir.TOP; //2x
+				theWallDir = TileDir.TOP; //thin
 			break;
 		case TileType.GATE:
 			//gate
 			if (boolGhostbox.TOPRIGHT && boolGhostbox.RIGHT && boolGhostbox.BOTTOMRIGHT)
-				theWallDir = TileDir.LEFT; //2x
+				theWallDir = TileDir.LEFT; //gate
 			else if (boolGhostbox.TOPLEFT && boolGhostbox.LEFT && boolGhostbox.BOTTOMLEFT) //
-				theWallDir = TileDir.RIGHT; //2x
+				theWallDir = TileDir.RIGHT; //gate
 			else if (boolGhostbox.TOPLEFT && boolGhostbox.TOP && boolGhostbox.TOPRIGHT) //
-				theWallDir = TileDir.BOTTOM; //2x
+				theWallDir = TileDir.BOTTOM; //gate
 			else if (boolGhostbox.BOTTOMLEFT && boolGhostbox.BOTTOM && boolGhostbox.BOTTOMRIGHT)
-				theWallDir = TileDir.TOP; //2x
+				theWallDir = TileDir.TOP; //gate
+			break;
+		case TileType.HINGE:
+			//hinge
+			if (boolPath.TOP && boolGhostbox.RIGHT)
+				theWallDir = TileDir.TOPLEFT; //hinge
+			else if (boolPath.TOP && boolGhostbox.LEFT) //
+				theWallDir = TileDir.TOPRIGHT; //hinge
+			else if (boolPath.RIGHT && boolGhostbox.BOTTOM) //
+				theWallDir = TileDir.RIGHTTOP; //hinge
+			else if (boolPath.RIGHT && boolGhostbox.TOP)
+				theWallDir = TileDir.RIGHTBOTTOM; //hinge
+			else if (boolPath.LEFT && boolGhostbox.BOTTOM) //
+				theWallDir = TileDir.LEFTTOP; //hinge
+			else if (boolPath.LEFT && boolGhostbox.TOP)
+				theWallDir = TileDir.LEFTBOTTOM; //hinge
+			else if (boolPath.BOTTOM && boolGhostbox.RIGHT) //
+				theWallDir = TileDir.BOTTOMLEFT; //hinge
+			else if (boolPath.BOTTOM && boolGhostbox.LEFT)
+				theWallDir = TileDir.BOTTOMRIGHT; //hinge
 			break;
 		}
 		return theWallDir;
@@ -407,23 +441,47 @@ public class CreateMap : MonoBehaviour {
 			case TileType.GATE:
 				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_square_gate.prefab";
 				break;
+			case TileType.HINGE:
+				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_square_hinge.prefab";
+				break;
 			}
 			switch (theWallInfo.Dir)
 			{
 			case TileDir.TOP:
+			case TileDir.TOPLEFT:
+			case TileDir.TOPRIGHT:
 				thisPrefab.Zrot = 0;
 				break;
 			case TileDir.LEFT:
+			case TileDir.LEFTTOP:
+			case TileDir.LEFTBOTTOM:
 				thisPrefab.Zrot = 90;
 				break;
 			case TileDir.RIGHT:
+			case TileDir.RIGHTTOP:
+			case TileDir.RIGHTBOTTOM:
 				thisPrefab.Zrot = -90;
 				break;
 			case TileDir.BOTTOM:
+			case TileDir.BOTTOMLEFT:
+			case TileDir.BOTTOMRIGHT:
 				thisPrefab.Zrot = 180;
 				break;
 			default:
 				thisPrefab.Zrot = -45;
+				break;
+			}
+			//set mirroring. should only be for hinge, but for now general flats
+			switch (theWallInfo.Dir)
+			{
+			case TileDir.TOPRIGHT:
+			case TileDir.LEFTTOP:
+			case TileDir.RIGHTBOTTOM:
+			case TileDir.BOTTOMLEFT:
+				thisPrefab.Xscale = -1.0f;
+				break;
+			default:
+				thisPrefab.Xscale = 1.0f;
 				break;
 			}
 			break;
@@ -514,7 +572,7 @@ public class CreateMap : MonoBehaviour {
 		DOUBLE,
 		THIN,
 		GATE,
-		FIVE,
+		HINGE,
 		SIX,
 		SEVEN,
 		EIGHT,
@@ -694,6 +752,7 @@ public class CreateMap : MonoBehaviour {
 		bool bCorner2 = false;;
 		bool bGhostbox = false;
 		bool bGhostgate = false;
+		bool bGhosthinge = false;
 
 		//check to characterize the tile
 		if (thisTile != TileType.BLANK) { //don't check for BLANK TILES
@@ -703,6 +762,7 @@ public class CreateMap : MonoBehaviour {
 			bTee = isTee(boolWalls) && bBorder;
 			bCorner2 = isCorner2(boolWalls);
 			bGhostbox = isGhostbox(boolGhostbox);
+			bGhosthinge = isGhosthinge(boolGhostbox, boolPath, boolBlank, boolWalls);
 		}
 		//always check for a Ghostgate since that's currently denoted by a BLANK tile.
 		bGhostgate = isGhostgate(boolGhostbox, boolPath, boolBlank) && thisTile == TileType.BLANK;
@@ -711,9 +771,10 @@ public class CreateMap : MonoBehaviour {
 			thisTile = TileType.DOUBLE;
 		else if (bGhostgate)
 			thisTile = TileType.GATE;
+		else if (bGhosthinge)
+			thisTile = TileType.HINGE;
 		else if (bGhostbox) //ghost box type=THIN
 			thisTile = TileType.THIN;
-
 		else //it's a single
 			thisTile = TileType.SINGLE;
 		//check for corners
@@ -731,7 +792,7 @@ public class CreateMap : MonoBehaviour {
 			theWallShape = WallShape.CORNER2;
 			theWallDir = corner2Dir(boolPath, thisTile);
 		}
-		else if (bFlat || bGhostgate) { 
+		else if (bFlat || bGhostgate || bGhosthinge) { 
 			theWallShape = WallShape.FLAT;
 			theWallDir = flatDir(boolWalls, boolPath, boolGhostbox, thisTile);
 		}
