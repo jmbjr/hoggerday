@@ -11,9 +11,13 @@ public class CreateMap : MonoBehaviour {
 	{
 		return theType == TileType.SINGLE || theType == TileType.DOUBLE || theType == TileType.THIN;
 	}
-	public static bool isEmpty(TileType theType)
+	public static bool isBlank(TileType theType)
 	{
-		return theType == TileType.BLANK || theType == TileType.PATH;
+		return theType == TileType.BLANK;
+	}
+	public static bool isPath(TileType theType)
+	{
+		return theType == TileType.PATH;
 	}
 	public static bool isOffmap(TileType theType)
 	{
@@ -86,7 +90,7 @@ public class CreateMap : MonoBehaviour {
 	}
 
 	//CHECK BOOLDIR STRUCT FOR ORIENTATION
-	public static TileDir cornerDir(boolDir boolWalls, boolDir boolEmpty, TileType thisTile)
+	public static TileDir cornerDir(boolDir boolWalls, boolDir boolPath, TileType thisTile)
 	{
 		TileDir theWallDir = TileDir.MIDDLE;
 
@@ -95,31 +99,31 @@ public class CreateMap : MonoBehaviour {
 		{
 		case TileType.SINGLE:
 		case TileType.THIN:
-			if (boolWalls.TOP && boolWalls.RIGHT && boolEmpty.BOTTOMLEFT)
+			if (boolWalls.TOP && boolWalls.RIGHT && boolPath.BOTTOMLEFT)
 				theWallDir = TileDir.BOTTOMLEFT; //1x
-			else if (boolWalls.TOP && boolWalls.LEFT && boolEmpty.BOTTOMRIGHT)
+			else if (boolWalls.TOP && boolWalls.LEFT && boolPath.BOTTOMRIGHT)
 				theWallDir = TileDir.BOTTOMRIGHT; //1x
-			else if (boolWalls.BOTTOM && boolWalls.RIGHT && boolEmpty.TOPLEFT)
+			else if (boolWalls.BOTTOM && boolWalls.RIGHT && boolPath.TOPLEFT)
 				theWallDir = TileDir.TOPLEFT; //1x
-			else if (boolWalls.BOTTOM && boolWalls.LEFT && boolEmpty.TOPRIGHT)
+			else if (boolWalls.BOTTOM && boolWalls.LEFT && boolPath.TOPRIGHT)
 				theWallDir = TileDir.TOPRIGHT; //1x
 			break;
 
 		case TileType.DOUBLE:
 			//2x
-			if (boolWalls.TOP && boolWalls.RIGHT && boolEmpty.TOPRIGHT)
+			if (boolWalls.TOP && boolWalls.RIGHT && boolPath.TOPRIGHT)
 				theWallDir = TileDir.BOTTOMLEFT; //2x
-			else if (boolWalls.TOP && boolWalls.LEFT && boolEmpty.TOPLEFT)
+			else if (boolWalls.TOP && boolWalls.LEFT && boolPath.TOPLEFT)
 				theWallDir = TileDir.BOTTOMRIGHT;  //2x
-			else if (boolWalls.BOTTOM && boolWalls.RIGHT && boolEmpty.BOTTOMRIGHT)
+			else if (boolWalls.BOTTOM && boolWalls.RIGHT && boolPath.BOTTOMRIGHT)
 				theWallDir = TileDir.TOPLEFT;  //2x
-			else if (boolWalls.BOTTOM && boolWalls.LEFT && boolEmpty.BOTTOMLEFT)
+			else if (boolWalls.BOTTOM && boolWalls.LEFT && boolPath.BOTTOMLEFT)
 				theWallDir = TileDir.TOPRIGHT; //2x
 			break;
 		}
 		return theWallDir;
 	}
-	public static TileDir flatDir(boolDir boolWalls, boolDir boolEmpty, boolDir boolGhostbox, TileType thisTile)
+	public static TileDir flatDir(boolDir boolWalls, boolDir boolPath, boolDir boolGhostbox, TileType thisTile)
 	{
 		TileDir theWallDir = TileDir.MIDDLE;
 
@@ -127,24 +131,24 @@ public class CreateMap : MonoBehaviour {
 		switch (thisTile)
 		{
 		case TileType.SINGLE:
-			if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.LEFT)
+			if (boolWalls.TOP && boolWalls.BOTTOM && boolPath.LEFT)
 				theWallDir = TileDir.LEFT; //1x
-			else if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.RIGHT)
+			else if (boolWalls.TOP && boolWalls.BOTTOM && boolPath.RIGHT)
 				theWallDir = TileDir.RIGHT; //1x
-			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.TOP)
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolPath.TOP)
 				theWallDir = TileDir.TOP; //1x
-			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.BOTTOM)
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolPath.BOTTOM)
 				theWallDir = TileDir.BOTTOM; //1x
 			break;
 		case TileType.DOUBLE:
 			//2x
-			if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.RIGHT)
+			if (boolWalls.TOP && boolWalls.BOTTOM && boolPath.RIGHT)
 				theWallDir = TileDir.LEFT; //2x
-			else if (boolWalls.TOP && boolWalls.BOTTOM && boolEmpty.LEFT)
+			else if (boolWalls.TOP && boolWalls.BOTTOM && boolPath.LEFT)
 				theWallDir = TileDir.RIGHT; //2x
-			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.TOP)
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolPath.TOP)
 				theWallDir = TileDir.BOTTOM; //2x
-			else if (boolWalls.LEFT && boolWalls.RIGHT && boolEmpty.BOTTOM)
+			else if (boolWalls.LEFT && boolWalls.RIGHT && boolPath.BOTTOM)
 				theWallDir = TileDir.TOP; //2x
 			break;
 		case TileType.THIN:
@@ -162,7 +166,7 @@ public class CreateMap : MonoBehaviour {
 		return theWallDir;
 	}
 
-	public static TileDir teeDir(boolDir boolOffmap, boolDir boolEmpty, TileType thisTile)
+	public static TileDir teeDir(boolDir boolOffmap, boolDir boolPath, TileType thisTile)
 	{
 		TileDir theWallDir = TileDir.MIDDLE;
 
@@ -170,27 +174,27 @@ public class CreateMap : MonoBehaviour {
 		{
 		case TileType.DOUBLE:
 			//2x
-			if (boolEmpty.BOTTOMLEFT && boolOffmap.TOP)
+			if (boolPath.BOTTOMLEFT && boolOffmap.TOP)
 				theWallDir = TileDir.TOPLEFT; //2x tee
-			else if (boolEmpty.BOTTOMRIGHT && boolOffmap.TOP)
+			else if (boolPath.BOTTOMRIGHT && boolOffmap.TOP)
 				theWallDir = TileDir.TOPRIGHT; //2x tee
-			else if (boolEmpty.TOPLEFT && boolOffmap.RIGHT)
+			else if (boolPath.TOPLEFT && boolOffmap.RIGHT)
 				theWallDir = TileDir.RIGHTTOP; //2x tee
-			else if (boolEmpty.BOTTOMLEFT && boolOffmap.RIGHT)
+			else if (boolPath.BOTTOMLEFT && boolOffmap.RIGHT)
 				theWallDir = TileDir.RIGHTBOTTOM; //2x tee
-			else if (boolEmpty.TOPRIGHT && boolOffmap.LEFT)
+			else if (boolPath.TOPRIGHT && boolOffmap.LEFT)
 				theWallDir = TileDir.LEFTTOP; //2x tee
-			else if (boolEmpty.BOTTOMRIGHT && boolOffmap.LEFT)
+			else if (boolPath.BOTTOMRIGHT && boolOffmap.LEFT)
 				theWallDir = TileDir.LEFTBOTTOM; //2x tee
-			else if (boolEmpty.TOPLEFT && boolOffmap.BOTTOM)
+			else if (boolPath.TOPLEFT && boolOffmap.BOTTOM)
 				theWallDir = TileDir.BOTTOMLEFT; //2x tee
-			else if (boolEmpty.TOPRIGHT && boolOffmap.BOTTOM)
+			else if (boolPath.TOPRIGHT && boolOffmap.BOTTOM)
 				theWallDir = TileDir.BOTTOMRIGHT; //2x tee
 			break;
 		}
 		return theWallDir;
 	}
-	public static TileDir corner2Dir(boolDir boolEmpty, TileType thisTile)
+	public static TileDir corner2Dir(boolDir boolPath, TileType thisTile)
 	{
 		TileDir theWallDir = TileDir.MIDDLE;
 		
@@ -198,13 +202,13 @@ public class CreateMap : MonoBehaviour {
 		{
 		case TileType.SINGLE:
 			//1x
-			if (boolEmpty.BOTTOMRIGHT)
+			if (boolPath.BOTTOMRIGHT)
 				theWallDir = TileDir.BOTTOMRIGHT; //1x corner2
-			else if (boolEmpty.BOTTOMLEFT)
+			else if (boolPath.BOTTOMLEFT)
 				theWallDir = TileDir.BOTTOMLEFT; //1x corner2
-			else if (boolEmpty.TOPRIGHT)
+			else if (boolPath.TOPRIGHT)
 				theWallDir = TileDir.TOPRIGHT; //1x corner2
-			else if (boolEmpty.TOPLEFT)
+			else if (boolPath.TOPLEFT)
 				theWallDir = TileDir.TOPLEFT; //1x corner2
 			break;
 		}
@@ -285,21 +289,37 @@ public class CreateMap : MonoBehaviour {
 
 		return boolWalls;
 	}
-	public static boolDir checkEmpty(TileType[] mapBlock)
+	public static boolDir checkPath(TileType[] mapBlock)
 	{
-		boolDir boolEmpty = new boolDir();
+		boolDir boolPath = new boolDir();
 		
-		boolEmpty.TOP = isEmpty(mapBlock[(int)TileDir.TOP]);
-		boolEmpty.LEFT = isEmpty(mapBlock[(int)TileDir.LEFT]);
-		boolEmpty.BOTTOM = isEmpty(mapBlock[(int)TileDir.BOTTOM]);
-		boolEmpty.RIGHT = isEmpty(mapBlock[(int)TileDir.RIGHT]);
+		boolPath.TOP = isPath(mapBlock[(int)TileDir.TOP]);
+		boolPath.LEFT = isPath(mapBlock[(int)TileDir.LEFT]);
+		boolPath.BOTTOM = isPath(mapBlock[(int)TileDir.BOTTOM]);
+		boolPath.RIGHT = isPath(mapBlock[(int)TileDir.RIGHT]);
 		
-		boolEmpty.TOPLEFT = isEmpty(mapBlock[(int)TileDir.TOPLEFT]);
-		boolEmpty.TOPRIGHT = isEmpty(mapBlock[(int)TileDir.TOPRIGHT]);
-		boolEmpty.BOTTOMLEFT = isEmpty(mapBlock[(int)TileDir.BOTTOMLEFT]);
-		boolEmpty.BOTTOMRIGHT = isEmpty(mapBlock[(int)TileDir.BOTTOMRIGHT]);
+		boolPath.TOPLEFT = isPath(mapBlock[(int)TileDir.TOPLEFT]);
+		boolPath.TOPRIGHT = isPath(mapBlock[(int)TileDir.TOPRIGHT]);
+		boolPath.BOTTOMLEFT = isPath(mapBlock[(int)TileDir.BOTTOMLEFT]);
+		boolPath.BOTTOMRIGHT = isPath(mapBlock[(int)TileDir.BOTTOMRIGHT]);
 		
-		return boolEmpty;
+		return boolPath;
+	}
+	public static boolDir checkBlank(TileType[] mapBlock)
+	{
+		boolDir boolBlank = new boolDir();
+		
+		boolBlank.TOP = isBlank(mapBlock[(int)TileDir.TOP]);
+		boolBlank.LEFT = isBlank(mapBlock[(int)TileDir.LEFT]);
+		boolBlank.BOTTOM = isBlank(mapBlock[(int)TileDir.BOTTOM]);
+		boolBlank.RIGHT = isBlank(mapBlock[(int)TileDir.RIGHT]);
+		
+		boolBlank.TOPLEFT = isBlank(mapBlock[(int)TileDir.TOPLEFT]);
+		boolBlank.TOPRIGHT = isBlank(mapBlock[(int)TileDir.TOPRIGHT]);
+		boolBlank.BOTTOMLEFT = isBlank(mapBlock[(int)TileDir.BOTTOMLEFT]);
+		boolBlank.BOTTOMRIGHT = isBlank(mapBlock[(int)TileDir.BOTTOMRIGHT]);
+		
+		return boolBlank;
 	}
 	public prefabInfo setPrefab(WallInfo theWallInfo)
 	{
@@ -627,13 +647,15 @@ public class CreateMap : MonoBehaviour {
 		WallInfo theWallInfo;
 
 		boolDir boolWalls = new boolDir();
-		boolDir boolEmpty = new boolDir();
+		boolDir boolPath = new boolDir();
+		boolDir boolBlank = new boolDir();
 		boolDir boolOffmap = new boolDir();
 		boolDir boolGhostbox = new boolDir();
 
 		boolOffmap = checkOffmap(mapBlock);
 		boolWalls = checkWalls(mapBlock);
-		boolEmpty = checkEmpty(mapBlock);
+		boolPath = checkPath(mapBlock);
+		boolBlank = checkBlank(mapBlock);
 		boolGhostbox = checkGhostbox(mapBlock);
 
 		//check to characterize the tile
@@ -654,21 +676,21 @@ public class CreateMap : MonoBehaviour {
 		//check for corners
 		if (bCorner) {
 			theWallShape = WallShape.CORNER;
-			theWallDir = cornerDir(boolWalls, boolEmpty, thisTile);
+			theWallDir = cornerDir(boolWalls, boolPath, thisTile);
 		}
 		else if (bTee)  {
 			thisTile = TileType.DOUBLE; // this should be redundant
 			theWallShape = WallShape.TEE;
-			theWallDir = teeDir(boolOffmap, boolEmpty, thisTile);
+			theWallDir = teeDir(boolOffmap, boolPath, thisTile);
 		}
 		else if (bCorner2)  { 
 			thisTile = TileType.SINGLE; //this should be redundant
 			theWallShape = WallShape.CORNER2;
-			theWallDir = corner2Dir(boolEmpty, thisTile);
+			theWallDir = corner2Dir(boolPath, thisTile);
 		}
 		else if (bFlat) {
 			theWallShape = WallShape.FLAT;
-			theWallDir = flatDir(boolWalls, boolEmpty, boolGhostbox, thisTile);
+			theWallDir = flatDir(boolWalls, boolPath, boolGhostbox, thisTile);
 		}
 		else
 			theWallShape = WallShape.NONE;
