@@ -29,13 +29,27 @@ public class CreateMap : MonoBehaviour {
 	}
 
 	//CHECK A BOOLDIR STRUCT
+	public static bool isGhostgate(boolDir boolGhostbox, boolDir boolPath, boolDir boolBlank)
+	{ 
+		//can only be a ghost gate if it's a BLANK tile next to another BLANK tile with PATH on one side and BLANK on the other
+		bool b1 = false;
+		bool b2 = false;
+		bool b3 = false;
+		bool b4 = false;
+		
+		b1 = boolPath.TOP && (boolGhostbox.RIGHT || boolGhostbox.LEFT) && boolGhostbox.BOTTOM;
+		b2 = boolGhostbox.TOP && (boolGhostbox.RIGHT || boolGhostbox.LEFT) && boolPath.BOTTOM;
+		b3 = boolPath.LEFT && (boolGhostbox.TOP || boolGhostbox.BOTTOM) && boolGhostbox.RIGHT;
+		b4 = boolGhostbox.LEFT && (boolGhostbox.TOP || boolGhostbox.BOTTOM) && boolPath.RIGHT;
+		
+		return (b1 || b2 || b3 || b4);		
+	}
 	public static bool isGhostbox(boolDir boolGhostbox)
 	{ 
 		//can only be a ghostbox if there's a single blank since blanks are only for ghostboxes
 		return (boolGhostbox.TOP || boolGhostbox.RIGHT || boolGhostbox.LEFT || boolGhostbox.BOTTOM ||
 		        boolGhostbox.TOPRIGHT || boolGhostbox.TOPLEFT || boolGhostbox.BOTTOMRIGHT || boolGhostbox.BOTTOMLEFT);
 	}
-
 	public static bool isBorder(boolDir boolOffmap)
 	{
 		return (boolOffmap.TOP || boolOffmap.RIGHT || boolOffmap.LEFT || boolOffmap.BOTTOM ||
@@ -160,6 +174,17 @@ public class CreateMap : MonoBehaviour {
 			else if (boolWalls.LEFT && boolWalls.RIGHT && boolGhostbox.TOP) //
 				theWallDir = TileDir.BOTTOM; //2x
 			else if (boolWalls.LEFT && boolWalls.RIGHT && boolGhostbox.BOTTOM)
+				theWallDir = TileDir.TOP; //2x
+			break;
+		case TileType.GATE:
+			//gate
+			if (boolGhostbox.TOPRIGHT && boolGhostbox.RIGHT && boolGhostbox.BOTTOMRIGHT)
+				theWallDir = TileDir.LEFT; //2x
+			else if (boolGhostbox.TOPLEFT && boolGhostbox.LEFT && boolGhostbox.BOTTOMLEFT) //
+				theWallDir = TileDir.RIGHT; //2x
+			else if (boolGhostbox.TOPLEFT && boolGhostbox.TOP && boolGhostbox.TOPRIGHT) //
+				theWallDir = TileDir.BOTTOM; //2x
+			else if (boolGhostbox.BOTTOMLEFT && boolGhostbox.BOTTOM && boolGhostbox.BOTTOMRIGHT)
 				theWallDir = TileDir.TOP; //2x
 			break;
 		}
@@ -378,6 +403,9 @@ public class CreateMap : MonoBehaviour {
 				break;
 			case TileType.THIN:
 				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_square_flat.prefab";
+				break;
+			case TileType.GATE:
+				thisPrefab.prefab = "Assets/Prefabs/pacman/wall_square_gate.prefab";
 				break;
 			}
 			switch (theWallInfo.Dir)
@@ -613,6 +641,7 @@ public class CreateMap : MonoBehaviour {
 					break;
 				case TileType.SINGLE:// let's parse further to determine which map piece to add
 				case TileType.DOUBLE:
+				case TileType.BLANK:
 					theWallInfo = getWallShape(theNeighbors);
 					thisPrefab = setPrefab(theWallInfo);
 
@@ -658,21 +687,35 @@ public class CreateMap : MonoBehaviour {
 		boolBlank = checkBlank(mapBlock);
 		boolGhostbox = checkGhostbox(mapBlock);
 
+		bool bCorner = false;
+		bool bFlat = false;
+		bool bBorder = false;
+		bool bTee = false;
+		bool bCorner2 = false;;
+		bool bGhostbox = false;
+		bool bGhostgate = false;
+
 		//check to characterize the tile
-		bool bCorner = isCorner(boolWalls);
-		bool bFlat = isFlat(boolWalls);
-		bool bBorder = isBorder(boolOffmap);
-		bool bTee = isTee(boolWalls) && bBorder;
-		bool bCorner2 = isCorner2(boolWalls);
-		bool bGhostbox = isGhostbox(boolGhostbox);
+		if (thisTile != TileType.BLANK) { //don't check for BLANK TILES
+			bCorner = isCorner(boolWalls);
+			bFlat = isFlat(boolWalls);
+			bBorder = isBorder(boolOffmap);
+			bTee = isTee(boolWalls) && bBorder;
+			bCorner2 = isCorner2(boolWalls);
+			bGhostbox = isGhostbox(boolGhostbox);
+		}
+		//always check for a Ghostgate since that's currently denoted by a BLANK tile.
+		bGhostgate = isGhostgate(boolGhostbox, boolPath, boolBlank) && thisTile == TileType.BLANK;
 
 		if (bBorder)
 			thisTile = TileType.DOUBLE;
+		else if (bGhostgate)
+			thisTile = TileType.GATE;
 		else if (bGhostbox) //ghost box type=THIN
 			thisTile = TileType.THIN;
+
 		else //it's a single
 			thisTile = TileType.SINGLE;
-
 		//check for corners
 		if (bCorner) {
 			theWallShape = WallShape.CORNER;
@@ -688,7 +731,7 @@ public class CreateMap : MonoBehaviour {
 			theWallShape = WallShape.CORNER2;
 			theWallDir = corner2Dir(boolPath, thisTile);
 		}
-		else if (bFlat) {
+		else if (bFlat || bGhostgate) { 
 			theWallShape = WallShape.FLAT;
 			theWallDir = flatDir(boolWalls, boolPath, boolGhostbox, thisTile);
 		}
